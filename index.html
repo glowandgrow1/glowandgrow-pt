@@ -1,981 +1,1194 @@
-
 <!DOCTYPE html>
 <html lang="el">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Glow & Grow — workouts, nutrition, wellness and fitness inspiration.">
-<title>Glow & Grow | Fitness & Wellness</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#080808">
+<meta name="description" content="GLOW & GROW — Stronger every day. Glow your way.">
+<title>GLOW & GROW | Fitness & Wellness</title>
 
 <style>
 :root {
-  --pink:#ff2e93;
-  --pink-light:#ff72b5;
-  --black:#090909;
-  --panel:#151515;
-  --panel2:#1d1d1d;
-  --white:#fff;
-  --muted:#b8b8b8;
-  --border:#303030;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:85px}
-body{
-  background:var(--black);color:var(--white);
-  font-family:'Montserrat',sans-serif;line-height:1.65;
-}
-a{color:inherit;text-decoration:none}
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
-img{max-width:100%;display:block}
-.container{width:min(1120px,92%);margin:auto}
-.section{padding:82px 0}
-.section-heading{text-align:center;margin-bottom:38px}
-.section-heading h2{font-size:clamp(28px,4vw,42px);font-weight:900}
-.section-heading h2 span,.pink{color:var(--pink)}
-.section-heading p{color:var(--muted);margin-top:9px}
-.eyebrow{color:var(--pink);font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  padding:12px 23px;border-radius:30px;border:1px solid var(--pink);
-  background:var(--pink);color:#fff;font-weight:800;transition:.25s;
-}
-.btn:hover{background:transparent;color:var(--pink);transform:translateY(-2px)}
-.btn-outline{background:transparent;color:var(--pink)}
-.btn-outline:hover{background:var(--pink);color:#fff}
-header{
-  position:sticky;top:0;z-index:100;background:rgba(9,9,9,.96);
-  border-bottom:1px solid var(--border);backdrop-filter:blur(12px);
-}
-.navbar{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}
-.logo{font-size:21px;font-weight:900;letter-spacing:-1px}
-.logo span{color:var(--pink)}
-.nav-links{display:flex;align-items:center;gap:19px;flex-wrap:wrap}
-.nav-links a{font-size:12px;font-weight:700;color:#ddd;transition:.2s}
-.nav-links a:hover{color:var(--pink)}
-.lang-switch{display:flex;gap:5px}
-.lang-switch button{
-  background:transparent;border:1px solid var(--border);color:#fff;
-  border-radius:7px;padding:6px 9px;font-size:11px;font-weight:800;
-}
-.lang-switch button.active{background:var(--pink);border-color:var(--pink)}
-.menu-toggle{display:none;background:none;border:0;color:#fff;font-size:25px}
-.hero{
-  min-height:590px;display:flex;align-items:center;position:relative;
-  background:
-  linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.55)),
-  url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1800&q=85') center/cover;
-}
-.hero-content{max-width:680px;padding:95px 0}
-.hero h1{font-size:clamp(43px,7vw,76px);line-height:1.05;font-weight:900;margin:17px 0}
-.hero h1 span{color:var(--pink)}
-.hero p{color:#ddd;max-width:570px;margin-bottom:27px}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:45px;max-width:540px}
-.stat{border-left:2px solid var(--pink);padding-left:13px}
-.stat strong{display:block;font-size:22px}
-.stat small{color:var(--muted);font-size:11px}
-.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{
-  background:var(--panel);border:1px solid var(--border);border-radius:17px;
-  overflow:hidden;transition:.25s;
-}
-.card:hover{transform:translateY(-5px);border-color:var(--pink)}
-.card-image{height:185px;overflow:hidden;background:#242424}
-.card-image img{width:100%;height:100%;object-fit:cover;transition:.4s}
-.card:hover .card-image img{transform:scale(1.05)}
-.card-body{padding:21px}
-.card h3{font-size:19px;margin-bottom:8px}
-.card p{font-size:13px;color:var(--muted)}
-.tag{display:inline-block;color:var(--pink);font-size:10px;font-weight:800;letter-spacing:1px;margin-bottom:8px}
-.program-controls{
-  display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:27px;
-}
-select,input,textarea{
-  background:#111;color:#fff;border:1px solid #444;border-radius:9px;
-  padding:11px 13px;width:100%;outline:none;
-}
-select:focus,input:focus,textarea:focus{border-color:var(--pink)}
-.control{min-width:180px}
-.control label,.field label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}
-.program-card .card-body{padding:20px}
-.program-card .card-image{height:170px}
-.program-card .card-image img{object-fit:cover}
-.program-meta{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
-.program-meta span{font-size:10px;color:#eee;background:#292929;padding:5px 9px;border-radius:20px}
-.exercise-list{margin-top:15px;border-top:1px solid var(--border);padding-top:12px}
-.exercise{padding:10px 0;border-bottom:1px solid #292929}
-.exercise:last-child{border:0}
-.exercise strong{font-size:13px;display:block}
-.exercise small{font-size:11px;color:var(--muted);display:block}
-.exercise-details{font-size:11px;color:var(--pink);margin-top:3px}
-.program-card .btn{width:100%;margin-top:15px}
-.panel{
-  background:var(--panel);border:1px solid var(--border);
-  border-radius:18px;padding:27px;
-}
-.progress-layout{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.progress-number{font-size:46px;font-weight:900;color:var(--pink)}
-.progress-track{height:12px;background:#333;border-radius:20px;overflow:hidden;margin:14px 0}
-.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--pink),#ff9bc9);border-radius:20px;transition:width .6s}
-.history{list-style:none;margin-top:15px}
-.history li{padding:9px 0;border-bottom:1px solid var(--border);font-size:12px;color:#ddd}
-.history li:last-child{border:0}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.field.full{grid-column:1/-1}
-textarea{min-height:110px;resize:vertical}
-.checkbox-line{display:flex;align-items:flex-start;gap:9px;font-size:11px;color:var(--muted)}
-.checkbox-line input{width:auto;margin-top:4px;accent-color:var(--pink)}
-.notice{font-size:11px;color:var(--muted);margin-top:12px}
-.challenge{
-  background:linear-gradient(130deg,#240b19,#151515 70%);
-  border:1px solid #69264a;border-radius:18px;padding:35px;
-}
-.challenge h3{font-size:27px;margin:8px 0}
-.challenge ul{padding-left:20px;color:#ddd;margin:16px 0}
-.challenge li{margin:6px 0}
-.blog-card .card-image{height:160px}
-.socials{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
-.social-link{
-  border:1px solid var(--border);border-radius:30px;padding:10px 17px;
-  color:#fff;font-size:12px;font-weight:700;transition:.2s;
-}
-.social-link:hover{border-color:var(--pink);color:var(--pink)}
-footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);font-size:12px;text-align:center}
-footer strong{color:var(--pink)}
-.hidden{display:none!important}
-.fade-in{animation:fadeIn .6s ease both}
-@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:850px){
-  .nav-links{display:none;position:absolute;top:72px;left:0;width:100%;background:#101010;padding:20px;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--border)}
-  .nav-links.open{display:flex}
-  .menu-toggle{display:block}
-  .card-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:600px){
-  .section{padding:60px 0}
-  .card-grid,.progress-layout,.form-grid{grid-template-columns:1fr}
-  .field.full{grid-column:auto}
-  .hero{min-height:570px}
-  .hero-content{padding:75px 0}
-  .stats{gap:8px}
-  .stat strong{font-size:18px}
-  .stat small{font-size:9px}
-  .program-controls{align-items:stretch}
-  .control{width:100%}
-}
-  
-.tip-toggle{
-  display:inline-flex;
-  margin-top:8px;
-  padding:7px 12px;
-  border:1px solid var(--pink);
-  border-radius:20px;
-  background:transparent;
-  color:var(--pink);
-  font-size:11px;
-  font-weight:800;
-}
-.tip-toggle:hover{
-  background:var(--pink);
-  color:white;
-}
-.tip-content{
-  margin-top:9px;
-  padding:10px;
-  background:#202020;
-  border-left:2px solid var(--pink);
-  border-radius:7px;
-  font-size:12px;
-  color:#eee;
-}
-.tip-content[hidden]{
-  display:none;
+  --pink: #ff168d;
+  --pink-light: #ff70bd;
+  --black: #080808;
+  --dark: #141414;
+  --card: #1c1c1c;
+  --white: #ffffff;
+  --gray: #bdbdbd;
+  --border: rgba(255,255,255,.12);
 }
 
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+button, input, select, textarea { font: inherit; }
+
+button { cursor: pointer; }
+
+a { color: inherit; text-decoration: none; }
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8,8,8,.95);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+
+.nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.logo span { color: var(--pink); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  color: #ddd;
+  font-size: 13px;
+  transition: color .2s;
+}
+
+.nav-links a:hover { color: var(--pink); }
+
+.language-btn, .menu-btn {
+  border: 1px solid var(--pink);
+  background: transparent;
+  color: white;
+  padding: 8px 13px;
+  border-radius: 7px;
+}
+
+.menu-btn { display: none; }
+
+.hero {
+  min-height: 610px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 20px;
+  background:
+    radial-gradient(ellipse at center, rgba(255,22,141,.18), transparent 65%),
+    linear-gradient(135deg,#080808,#191019,#080808);
+}
+
+.hero-content { max-width: 850px; }
+
+.eyebrow {
+  color: var(--pink-light);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.hero h1 {
+  font-size: clamp(48px, 9vw, 100px);
+  line-height: 1.05;
+  margin: 20px 0;
+  font-weight: 900;
+}
+
+.hero h1 span { color: var(--pink); }
+
+.hero p {
+  color: #ddd;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 23px;
+  border: 1px solid var(--pink);
+  border-radius: 7px;
+  background: var(--pink);
+  color: white;
+  font-weight: bold;
+  transition: .2s;
+}
+
+.btn:hover {
+  background: transparent;
+  color: var(--pink);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: var(--pink);
+  color: white;
+}
+
+section {
+  padding: 85px 22px;
+  scroll-margin-top: 75px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-heading h2 {
+  font-size: clamp(30px,5vw,44px);
+  margin-bottom: 10px;
+}
+
+.section-heading h2 span { color: var(--pink); }
+
+.section-heading p {
+  color: var(--gray);
+  max-width: 650px;
+  margin: auto;
+}
+
+.about-grid, .contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 30px;
+  align-items: center;
+}
+
+.about-panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 30px;
+  border-radius: 14px;
+}
+
+.about-panel h3 {
+  color: var(--pink);
+  margin-bottom: 12px;
+  font-size: 23px;
+}
+
+.about-panel p { color: #ccc; }
+
+.feature-list {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.feature-list li { margin: 10px 0; }
+
+.feature-list li::before {
+  content: "✦";
+  color: var(--pink);
+  margin-right: 10px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 25px;
+  border-radius: 13px;
+  transition: .2s;
+}
+
+.card:hover {
+  border-color: var(--pink);
+  transform: translateY(-4px);
+}
+
+.card-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  color: var(--pink-light);
+  margin-bottom: 10px;
+}
+
+.card p { color: #ccc; font-size: 14px; }
+
+.workout-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.workout-card select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  background: #101010;
+  color: white;
+  border: 1px solid var(--border);
+}
+
+.exercise-list {
+  padding-left: 20px;
+  color: #ddd;
+  font-size: 14px;
+}
+
+.exercise-list li { margin: 5px 0; }
+
+.tip {
+  color: var(--pink-light);
+  font-size: 13px;
+  background: rgba(255,22,141,.08);
+  padding: 10px;
+  border-radius: 7px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.stat {
+  text-align: center;
+  padding: 23px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.stat strong {
+  display: block;
+  font-size: 35px;
+  color: var(--pink);
+}
+
+.stat span { color: #ccc; font-size: 13px; }
+
+.progress-panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 25px;
+  margin-bottom: 25px;
+}
+
+.progress-panel h3 {
+  color: var(--pink-light);
+  margin-bottom: 15px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 15px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field.full { grid-column: 1/-1; }
+
+.field label {
+  font-size: 13px;
+  color: #ddd;
+}
+
+.field input, .field textarea, .field select {
+  width: 100%;
+  padding: 12px;
+  background: #101010;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 6px;
+}
+
+.field input:focus, .field textarea:focus {
+  outline: 1px solid var(--pink);
+  border-color: var(--pink);
+}
+
+.form-actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.history-item {
+  padding: 15px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.history-item strong { color: var(--pink-light); }
+
+.history-item small { color: #aaa; }
+
+.empty-state {
+  color: #aaa;
+  padding: 15px 0;
+  text-align: center;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 15px;
+}
+
+.photo-box {
+  background: var(--card);
+  border: 1px dashed #777;
+  border-radius: 10px;
+  min-height: 170px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.photo-box img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 7px;
+}
+
+.photo-box input { max-width: 100%; }
+
+.quote {
+  text-align: center;
+  font-size: clamp(23px,4vw,35px);
+  font-weight: bold;
+  color: var(--white);
+  max-width: 800px;
+  margin: auto;
+}
+
+.quote span { color: var(--pink); }
+
+.contact-info p {
+  color: #ccc;
+  margin: 12px 0;
+}
+
+.contact-info a { color: var(--pink-light); }
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 30px 20px;
+  text-align: center;
+  color: #999;
+  font-size: 13px;
+}
+
+footer strong { color: var(--pink); }
+
+.notice {
+  margin-top: 15px;
+  color: var(--pink-light);
+  font-size: 14px;
+  min-height: 22px;
+}
+
+.hidden { display: none !important; }
+
+@media(max-width:850px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: #101010;
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links.open { display: flex; }
+  .menu-btn { display: inline-block; }
+  .cards { grid-template-columns: repeat(2,1fr); }
+}
+
+@media(max-width:600px) {
+  section { padding: 65px 17px; }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; }
+  .cards { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .field.full { grid-column: auto; }
+  .photo-grid { grid-template-columns: 1fr; }
+  .hero { min-height: 520px; }
+}
 </style>
 </head>
 
 <body>
+
 <header>
-  <div class="container navbar">
-    <a class="logo" href="#home">GLOW<span>&</span>GROW.</a>
-    <nav class="nav-links" id="navLinks">
-      <a href="#home" data-i="navHome">Αρχική</a>
-      <a href="#workouts" data-i="navWorkouts">Προγράμματα</a>
-      <a href="#progress" data-i="navProgress">Πρόοδος</a>
-      <a href="#nutrition" data-i="navNutrition">Διατροφή</a>
-      <a href="#wellness" data-i="navWellness">Ευεξία</a>
-      <a href="#community" data-i="navCommunity">Κοινότητα</a>
-      <a href="#blog" data-i="navBlog">Blog</a>
-      <a href="#contact" data-i="navContact">Επικοινωνία</a>
-    </nav>
-    <div class="lang-switch">
-      <button id="grBtn" class="active" onclick="setLanguage('el')">GR</button>
-      <button id="enBtn" onclick="setLanguage('en')">EN</button>
+  <nav class="nav">
+    <a href="#home" class="logo">GLOW <span>&</span> GROW</a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#home" data-en="Home">Αρχική</a>
+      <a href="#about" data-en="About">Σχετικά</a>
+      <a href="#workouts" data-en="Workouts">Προπονήσεις</a>
+      <a href="#progress" data-en="My Progress">Η πρόοδός μου</a>
+      <a href="#wellness" data-en="Wellness">Ευεξία</a>
+      <a href="#contact" data-en="Contact">Επικοινωνία</a>
     </div>
-    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">☰</button>
-  </div>
+
+    <div style="display:flex;gap:8px">
+      <button class="language-btn" id="languageBtn" type="button">EN</button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu">☰</button>
+    </div>
+  </nav>
 </header>
 
 <main>
+
 <section class="hero" id="home">
-  <div class="container hero-content">
-    <span class="eyebrow" data-i="heroEyebrow">YOUR JOURNEY STARTS HERE</span>
-    <h1 data-i="heroTitle">STRONGER<br>EVERY DAY.<br><span>GLOW</span> YOUR WAY.</h1>
-    <p data-i="heroText">Χτίσε δύναμη, αυτοπεποίθηση και υγιεινές συνήθειες. Κάθε μικρό βήμα μετράει. Ξεκίνα από εκεί που βρίσκεσαι.</p>
-    <div class="hero-actions">
-      <a class="btn" href="#workouts" data-i="heroButton">Βρες το πρόγραμμά σου</a>
-      <a class="btn btn-outline" href="#about" data-i="heroAbout">Γνώρισε το Glow & Grow</a>
+  <div class="hero-content">
+    <div class="eyebrow">Your fitness journey starts here</div>
+    <h1>GLOW <span>&</span><br>GROW</h1>
+    <p data-en="Stronger every day. Glow your way.">STRONGER EVERY DAY. GLOW YOUR WAY.</p>
+    <a href="#workouts" class="btn" data-en="Explore Workouts">Ανακάλυψε τις προπονήσεις</a>
+    <a href="#progress" class="btn btn-secondary" data-en="Track Progress">Κατέγραψε την πρόοδό σου</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-heading">
+      <h2 data-en="ABOUT GLOW & GROW">ΣΧΕΤΙΚΑ ΜΕ ΤΟ <span>GLOW & GROW</span></h2>
+      <p data-en="A space dedicated to strength, confidence and a healthier lifestyle.">
+        Ένας χώρος αφιερωμένος στη δύναμη, την αυτοπεποίθηση και έναν πιο υγιεινό τρόπο ζωής.
+      </p>
     </div>
+
+    <div class="about-grid">
+      <div class="about-panel">
+        <h3 data-en="More than fitness">Περισσότερο από fitness</h3>
+        <p data-en="GLOW & GROW is about building healthy habits, feeling stronger and celebrating every small achievement.">
+          Το GLOW & GROW αφορά τη δημιουργία υγιεινών συνηθειών, την ενδυνάμωση και τον εορτασμό κάθε μικρής επιτυχίας.
+        </p>
+      </div>
+
+      <div class="about-panel">
+        <h3 data-en="Our philosophy">Η φιλοσοφία μας</h3>
+        <ul class="feature-list">
+          <li data-en="Progress over perfection">Πρόοδος, όχι τελειότητα</li>
+          <li data-en="Consistency is key">Η συνέπεια είναι το κλειδί</li>
+          <li data-en="Strength inside and out">Δύναμη μέσα και έξω</li>
+          <li data-en="Celebrate your journey">Απόλαυσε τη διαδρομή σου</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="workouts">
+  <div class="container">
+    <div class="section-heading">
+      <h2 data-en="CHOOSE YOUR WORKOUT">ΕΠΕΛΕΞΕ ΤΗΝ <span>ΠΡΟΠΟΝΗΣΗ</span> ΣΟΥ</h2>
+      <p data-en="Find a workout that matches your goals and your energy.">
+        Βρες την προπόνηση που ταιριάζει στους στόχους και στην ενέργειά σου.
+      </p>
+    </div>
+
+    <div class="cards" id="workoutCards"></div>
+  </div>
+</section>
+
+<section id="progress">
+  <div class="container">
+    <div class="section-heading">
+      <h2 data-en="YOUR PROGRESS">Η <span>ΠΡΟΟΔΟΣ</span> ΣΟΥ</h2>
+      <p data-en="Every workout counts. Keep track of your journey.">
+        Κάθε προπόνηση μετράει. Παρακολούθησε την πορεία σου.
+      </p>
+    </div>
+
     <div class="stats">
-      <div class="stat"><strong>10–45'</strong><small data-i="stat1">Ευέλικτες προπονήσεις</small></div>
-      <div class="stat"><strong>3</strong><small data-i="stat2">Επίπεδα δυσκολίας</small></div>
-      <div class="stat"><strong>100%</strong><small data-i="stat3">Ο δικός σου ρυθμός</small></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="about">
-  <div class="container">
-    <div class="section-heading">
-      <span class="eyebrow">GLOW & GROW</span>
-      <h2 data-i="aboutTitle">Δεν χρειάζεται να είσαι τέλεια.<br><span>Χρειάζεται να ξεκινήσεις.</span></h2>
-      <p data-i="aboutText">Ένας χώρος για κίνηση, ισορροπία και μικρές καθημερινές νίκες.</p>
-    </div>
-    <div class="card-grid">
-      <article class="card">
-        <div class="card-image"><img loading="lazy" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80" alt="Άσκηση και κίνηση"></div>
-        <div class="card-body"><span class="tag">01 / MOVE</span><h3 data-i="aboutCard1">Κινήσου με τον τρόπο σου</h3><p data-i="aboutCard1Text">Προπονήσεις που προσαρμόζονται στον χρόνο και στο επίπεδό σου.</p></div>
-      </article>
-      <article class="card">
-        <div class="card-image"><img loading="lazy" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=900&q=80" alt="Ισορροπημένο φαγητό"></div>
-        <div class="card-body"><span class="tag">02 / NOURISH</span><h3 data-i="aboutCard2">Θρέψε το σώμα σου</h3><p data-i="aboutCard2Text">Απλές ιδέες διατροφής με έμφαση στην ισορροπία και την απόλαυση.</p></div>
-      </article>
-      <article class="card">
-        <div class="card-image"><img loading="lazy" src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=80" alt="Χαλάρωση και ευεξία"></div>
-        <div class="card-body"><span class="tag">03 / RESET</span><h3 data-i="aboutCard3">Φρόντισε τον εαυτό σου</h3><p data-i="aboutCard3Text">Ξεκούραση, συνέπεια και θετική σχέση με την άσκηση.</p></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="workouts">
-  <div class="container">
-    <div class="section-heading">
-      <span class="eyebrow">TRAIN YOUR WAY</span>
-      <h2 data-i="workoutTitle">Τα <span>προγράμματά</span> σου</h2>
-      <p data-i="workoutSubtitle">Διάλεξε στόχο, επίπεδο και χρόνο. Ξεκίνα με τον δικό σου ρυθμό.</p>
-    </div>
-
-    <div class="program-controls">
-      <div class="control">
-        <label for="levelSelect" data-i="levelLabel">Επίπεδο</label>
-        <select id="levelSelect" onchange="renderPrograms()">
-          <option value="beginner" data-i="beginner">Αρχάριο</option>
-          <option value="intermediate" data-i="intermediate">Μεσαίο</option>
-          <option value="advanced" data-i="advanced">Προχωρημένο</option>
-        </select>
+      <div class="stat">
+        <strong id="totalWorkouts">0</strong>
+        <span data-en="Workouts completed">Προπονήσεις ολοκληρωμένες</span>
       </div>
-      <div class="control">
-        <label for="durationSelect" data-i="durationLabel">Διάρκεια</label>
-        <select id="durationSelect" onchange="renderPrograms()">
-          <option value="quick" data-i="quick">Quick · 10–15 λεπτά</option>
-          <option value="standard" selected data-i="standard">Standard · 20–30 λεπτά</option>
-          <option value="extended" data-i="extended">Extended · 35–45 λεπτά</option>
-        </select>
+      <div class="stat">
+        <strong id="totalMinutes">0</strong>
+        <span data-en="Total minutes">Συνολικά λεπτά</span>
+      </div>
+      <div class="stat">
+        <strong id="totalDays">0</strong>
+        <span data-en="Active days">Ενεργές ημέρες</span>
       </div>
     </div>
-    <div class="card-grid" id="programGrid"></div>
-  </div>
-</section>
 
-<section class="section" id="progress">
-  <div class="container">
-    <div class="section-heading">
-      <span class="eyebrow">YOUR PROGRESS</span>
-      <h2 data-i="progressTitle">Κάθε προπόνηση <span>μετράει</span></h2>
-      <p data-i="progressSubtitle">Η πρόοδός σου αποθηκεύεται σε αυτή τη συσκευή.</p>
-    </div>
-    <div class="progress-layout">
-      <div class="panel">
-        <h3 data-i="weeklyGoal">Ο εβδομαδιαίος στόχος σου</h3>
-        <p style="color:var(--muted);font-size:12px;margin-top:5px" data-i="goalText">Πόσες προπονήσεις θέλεις να ολοκληρώνεις κάθε εβδομάδα;</p>
-        <div style="max-width:150px;margin-top:15px">
-          <select id="weeklyGoal" onchange="saveGoal()">
-            <option value="2">2</option><option value="3" selected>3</option>
-            <option value="4">4</option><option value="5">5</option><option value="6">6</option>
-          </select>
+    <div class="progress-panel">
+      <h3 data-en="Log your workout">Κατέγραψε την προπόνησή σου</h3>
+
+      <form id="workoutForm">
+        <div class="form-grid">
+          <div class="field">
+            <label for="workoutName" data-en="Workout">Προπόνηση</label>
+            <select id="workoutName" required>
+              <option value="">Επίλεξε προπόνηση</option>
+              <option value="Full Body">Full Body</option>
+              <option value="Legs & Glutes">Legs & Glutes</option>
+              <option value="Upper Body">Upper Body</option>
+              <option value="Abs & Core">Abs & Core</option>
+              <option value="Cardio">Cardio</option>
+              <option value="Stretch & Recovery">Stretch & Recovery</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="workoutDuration" data-en="Duration (minutes)">Διάρκεια (λεπτά)</label>
+            <input id="workoutDuration" type="number" min="1" max="600" placeholder="30" required>
+          </div>
+
+          <div class="field full">
+            <label for="workoutNotes" data-en="Notes (optional)">Σημειώσεις (προαιρετικά)</label>
+            <textarea id="workoutNotes" rows="3" placeholder="Πώς ένιωσες σήμερα;"></textarea>
+          </div>
         </div>
-        <div class="progress-number" id="progressNumber">0/3</div>
-        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-        <p id="goalMessage" style="font-size:12px;color:var(--muted)"></p>
+
+        <div class="form-actions">
+          <button class="btn" type="submit" data-en="Log this workout">Κατέγραψα την προπόνηση</button>
+        </div>
+        <p class="notice" id="workoutMessage" role="status"></p>
+      </form>
+    </div>
+
+    <div class="progress-panel">
+      <h3 data-en="Workout history">Ιστορικό προπονήσεων</h3>
+      <div id="workoutHistory">
+        <p class="empty-state">Δεν έχεις καταγράψει ακόμη κάποια προπόνηση.</p>
       </div>
-      <div class="panel">
-        <h3 data-i="historyTitle">Το ιστορικό σου</h3>
-        <p style="font-size:12px;color:var(--muted);margin-top:5px" data-i="historyText">Οι τελευταίες προπονήσεις που κατέγραψες.</p>
-        <ul class="history" id="workoutHistory"></ul>
-        <button class="btn btn-outline" style="margin-top:15px" onclick="clearHistory()" data-i="clearHistory">Καθαρισμός ιστορικού</button>
+
+      <div class="form-actions">
+        <button class="btn btn-secondary" id="clearHistoryBtn" type="button" data-en="Clear history">Καθαρισμός ιστορικού</button>
       </div>
     </div>
-    <p class="notice" data-i="privacyNote">Τα δεδομένα προόδου αποθηκεύονται μόνο τοπικά στον browser σου. Αν αλλάξεις συσκευή ή καθαρίσεις τα δεδομένα περιήγησης, μπορεί να χαθούν.</p>
-  </div>
-</section>
 
-<section class="section" id="nutrition">
-  <div class="container">
-    <div class="section-heading">
-      <span class="eyebrow">NOURISH YOUR BODY</span>
-      <h2 data-i="nutritionTitle">Nutrition <span>& balance</span></h2>
-      <p data-i="nutritionSubtitle">Μικρές ιδέες για μια ισορροπημένη καθημερινότητα.</p>
+    <div class="progress-panel">
+      <h3 data-en="Your personal goal">Ο προσωπικός σου στόχος</h3>
+      <form id="goalForm">
+        <div class="field">
+          <label for="goalInput" data-en="Set a goal">Βάλε έναν στόχο</label>
+          <input id="goalInput" type="text" maxlength="150" placeholder="π.χ. 3 προπονήσεις την εβδομάδα">
+        </div>
+        <div class="form-actions">
+          <button class="btn" type="submit" data-en="Save goal">Αποθήκευση στόχου</button>
+        </div>
+      </form>
+      <p class="notice" id="savedGoal"></p>
     </div>
-    <div class="card-grid">
-      <article class="card">
-        <div class="card-image"><img loading="lazy" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=900&q=80" alt="Υγιεινό γεύμα"></div>
-        <div class="card-body"><span class="tag">01 / BALANCE</span><h3 data-i="nutrition1">Ισορροπημένο πιάτο</h3><p data-i="nutrition1Text">Συνδύασε λαχανικά, πηγή πρωτεΐνης, υδατάνθρακες και καλά λιπαρά.</p></div>
-      </article>
-      <article class="card">
-        <div class="card-image"><img loading="lazy" src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80" alt="Φρέσκα τρόφιμα"></div>
-        <div class="card-body"><span class="tag">02 / FUEL</span><h3 data-i="nutrition2">Φαγητό και ενέργεια</h3><p data-i="nutrition2Text">Φρόντισε να τρως αρκετά και τακτικά, ανάλογα με τις ανάγκες σου.</p></div>
-      </article>
-      <article class="card">
-        <div class="card-image"><img loading="lazy" src="https://images.unsplash.com/photo-1532634896-26909d0d4b54?auto=format&fit=crop&w=900&q=80" alt="Νερό και ενυδάτωση"></div>
-        <div class="card-body"><span class="tag">03 / HYDRATE</span><h3 data-i="nutrition3">Ενυδάτωση</h3><p data-i="nutrition3Text">Έχε νερό κοντά σου και προσαρμόζεις την πρόσληψη στις ανάγκες και τη δραστηριότητά σου.</p></div>
-      </article>
-    </div>
-    <p class="notice" data-i="nutritionDisclaimer">Το περιεχόμενο είναι γενική ενημέρωση και δεν αντικαθιστά εξατομικευμένη συμβουλή διαιτολόγου ή επαγγελματία υγείας.</p>
-  </div>
-</section>
 
-<section class="section" id="wellness">
-  <div class="container">
-    <div class="section-heading">
-      <span class="eyebrow">MIND & BODY</span>
-      <h2 data-i="wellnessTitle">Wellness <span>matters</span></h2>
-      <p data-i="wellnessSubtitle">Η φροντίδα σου δεν τελειώνει όταν τελειώνει η προπόνηση.</p>
-    </div>
-    <div class="card-grid">
-      <article class="card">
-        <div class="card-image"><img loading="lazy" src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=80" alt="Διαλογισμός"></div>
-        <div class="card-body"><h3 data-i="wellness1">Χρόνος για ηρεμία</h3><p data-i="wellness1Text">Δοκίμασε λίγα λεπτά αναπνοών ή χαλάρωσης μέσα στην ημέρα.</p></div>
-      </article>
-      <article class="card">
-        <div class="card-image"><img loading="lazy" src="https://images.unsplash.com/photo-1511295742362-92c96b7b4c6b?auto=format&fit=crop&w=900&q=80" alt="Ξεκούραση"></div>
-        <div class="card-body"><h3 data-i="wellness2">Ξεκούραση χωρίς ενοχές</h3><p data-i="wellness2Text">Οι ημέρες αποκατάστασης είναι μέρος μιας βιώσιμης ρουτίνας.</p></div>
-      </article>
-      <article class="card">
-        <div class="card-image"><img loading="lazy" src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=900&q=80" alt="Πρωινή βόλτα"></div>
-        <div class="card-body"><h3 data-i="wellness3">Μικρές καθημερινές συνήθειες</h3><p data-i="wellness3Text">Ένας περίπατος, λίγη κίνηση και σταθερό πρόγραμμα ύπνου μπορούν να βοηθήσουν.</p></div>
-      </article>
+    <div class="progress-panel">
+      <h3 data-en="Progress photos">Φωτογραφίες προόδου</h3>
+      <p style="color:#aaa;font-size:13px;margin-bottom:15px"
+         data-en="Your photos stay in this browser on this device.">
+        Οι φωτογραφίες σου αποθηκεύονται σε αυτόν τον browser και σε αυτή τη συσκευή.
+      </p>
+      <div class="photo-grid" id="photoGrid"></div>
     </div>
   </div>
 </section>
 
-<section class="section" id="community">
+<section id="wellness">
   <div class="container">
     <div class="section-heading">
-      <span class="eyebrow">GROW TOGETHER</span>
-      <h2 data-i="communityTitle">Η κοινότητά <span>μας</span></h2>
-      <p data-i="communitySubtitle">Μικρές προκλήσεις, θετική ενέργεια και συνέπεια.</p>
+      <h2 data-en="WELLNESS & SELF CARE">WELLNESS <span>& SELF CARE</span></h2>
+      <p data-en="Fitness is only one part of feeling good. Take care of your mind and body.">
+        Το fitness είναι μόνο ένα μέρος της ευεξίας. Φρόντισε το σώμα και το μυαλό σου.
+      </p>
     </div>
-    <div class="challenge">
-      <span class="eyebrow" data-i="challengeEyebrow">WEEKLY CHALLENGE</span>
-      <h3 data-i="challengeTitle">7 Days of Movement</h3>
-      <p data-i="challengeText">Βάλε λίγη κίνηση στην καθημερινότητά σου για επτά ημέρες.</p>
-      <ul>
-        <li data-i="challenge1">Ημέρα 1: 10 λεπτά περπάτημα.</li>
-        <li data-i="challenge2">Ημέρα 2: 10 λεπτά διατάσεις.</li>
-        <li data-i="challenge3">Ημέρα 3: Μία σύντομη προπόνηση.</li>
-        <li data-i="challenge4">Ημέρα 4: Περίπατος ή ήπια κίνηση.</li>
-        <li data-i="challenge5">Ημέρα 5: 10 λεπτά ενδυνάμωση.</li>
-        <li data-i="challenge6">Ημέρα 6: Pilates ή mobility.</li>
-        <li data-i="challenge7">Ημέρα 7: Ξεκούραση και ανασκόπηση.</li>
-      </ul>
-      <a class="btn" href="https://www.instagram.com/glowandgrow.pt/" target="_blank" rel="noopener" data-i="challengeButton">Μοιράσου την πρόοδό σου</a>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">💧</div>
+        <h3 data-en="Hydration">Ενυδάτωση</h3>
+        <p data-en="Drink water regularly throughout the day and pay attention to your body's needs.">
+          Πίνε νερό τακτικά μέσα στην ημέρα και άκου τις ανάγκες του σώματός σου.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🥗</div>
+        <h3 data-en="Balanced Nutrition">Ισορροπημένη διατροφή</h3>
+        <p data-en="Choose a varied and balanced diet that supports your energy and recovery.">
+          Επίλεξε μια ποικίλη και ισορροπημένη διατροφή που υποστηρίζει την ενέργεια και την αποκατάστασή σου.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">😴</div>
+        <h3 data-en="Rest & Recovery">Ξεκούραση</h3>
+        <p data-en="Sleep and recovery are important parts of a sustainable fitness routine.">
+          Ο ύπνος και η αποκατάσταση είναι σημαντικά στοιχεία μιας βιώσιμης fitness ρουτίνας.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🧘‍♀️</div>
+        <h3 data-en="Mindfulness">Mindfulness</h3>
+        <p data-en="Take a few minutes to breathe, relax and reconnect with yourself.">
+          Αφιέρωσε λίγα λεπτά για να αναπνεύσεις, να χαλαρώσεις και να συνδεθείς με τον εαυτό σου.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🌸</div>
+        <h3 data-en="Self Care">Self Care</h3>
+        <p data-en="Make time for activities that help you feel happy, calm and confident.">
+          Βρες χρόνο για δραστηριότητες που σε κάνουν να νιώθεις χαρούμενη, ήρεμη και γεμάτη αυτοπεποίθηση.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">✨</div>
+        <h3 data-en="Consistency">Συνέπεια</h3>
+        <p data-en="Small steps repeated over time can create meaningful changes.">
+          Τα μικρά βήματα που επαναλαμβάνονται μπορούν να δημιουργήσουν ουσιαστικές αλλαγές.
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="blog">
+<section>
   <div class="container">
-    <div class="section-heading">
-      <span class="eyebrow">THE GLOW BLOG</span>
-      <h2 data-i="blogTitle">Inspire. Learn. <span>Grow.</span></h2>
-      <p data-i="blogSubtitle">Ιδέες και υπενθυμίσεις για το fitness journey σου.</p>
-    </div>
-    <div class="card-grid">
-      <article class="card blog-card">
-        <div class="card-image"><img loading="lazy" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80" alt="Προπόνηση"></div>
-        <div class="card-body"><span class="tag">FITNESS</span><h3 data-i="blog1">Πώς να χτίσεις μια σταθερή ρουτίνα</h3><p data-i="blog1Text">Ξεκίνα μικρά, διάλεξε ρεαλιστικούς στόχους και δώσε χρόνο στον εαυτό σου.</p></div>
-      </article>
-      <article class="card blog-card">
-        <div class="card-image"><img loading="lazy" src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=80" alt="Mindfulness"></div>
-        <div class="card-body"><span class="tag">WELLNESS</span><h3 data-i="blog2">Η ξεκούραση είναι μέρος της προόδου</h3><p data-i="blog2Text">Η αποκατάσταση βοηθά να διατηρείς μια πιο ισορροπημένη σχέση με την άσκηση.</p></div>
-      </article>
-      <article class="card blog-card">
-        <div class="card-image"><img loading="lazy" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=900&q=80" alt="Υγιεινή διατροφή"></div>
-        <div class="card-body"><span class="tag">NUTRITION</span><h3 data-i="blog3">Ισορροπία αντί για τελειότητα</h3><p data-i="blog3Text">Η ευεξία χτίζεται με συνήθειες που μπορείς να διατηρήσεις.</p></div>
-      </article>
-    </div>
+    <p class="quote">
+      “Your only competition is <span>who you were yesterday.</span>”
+    </p>
   </div>
 </section>
 
-<section class="section" id="contact">
+<section id="contact">
   <div class="container">
     <div class="section-heading">
-      <span class="eyebrow">LET'S CONNECT</span>
-      <h2 data-i="contactTitle">Ας ξεκινήσουμε <span>μαζί</span></h2>
-      <p data-i="contactSubtitle">Στείλε αίτημα για ένα πρόγραμμα προσαρμοσμένο στις προτιμήσεις σου.</p>
+      <h2 data-en="GET IN TOUCH">ΕΠΙΚΟΙΝΩΝΗΣΕ <span>ΜΑΖΙ ΜΑΣ</span></h2>
+      <p data-en="Questions, ideas or feedback? We would love to hear from you.">
+        Έχεις ερωτήσεις, ιδέες ή σχόλια; Θα χαρούμε να επικοινωνήσεις μαζί μας.
+      </p>
     </div>
-    <div class="progress-layout">
-      <div class="panel">
-        <h3 data-i="requestTitle">Ζήτησε το δικό σου πρόγραμμα</h3>
-        <form id="requestForm">
-          <div class="form-grid" style="margin-top:18px">
-            <div class="field">
-              <label for="visitorName" data-i="nameLabel">Όνομα</label>
-              <input id="visitorName" required maxlength="80" autocomplete="name">
-            </div>
-            <div class="field">
-              <label for="visitorEmail" data-i="emailLabel">Email</label>
-              <input id="visitorEmail" type="email" required maxlength="120" autocomplete="email">
-            </div>
-            <div class="field">
-              <label for="fitnessLevel" data-i="formLevel">Επίπεδο</label>
-              <select id="fitnessLevel">
-                <option value="Beginner" data-i="beginner">Αρχάριο</option>
-                <option value="Intermediate" data-i="intermediate">Μεσαίο</option>
-                <option value="Advanced" data-i="advanced">Προχωρημένο</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="fitnessGoal" data-i="formGoal">Στόχος</label>
-              <select id="fitnessGoal">
-                <option value="Strength" data-i="goalStrength">Ενδυνάμωση</option>
-                <option value="Fitness" data-i="goalFitness">Γενική φυσική κατάσταση</option>
-                <option value="Mobility" data-i="goalMobility">Ευλυγισία και κινητικότητα</option>
-                <option value="Wellness" data-i="goalWellness">Ευεξία</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="preferredDuration" data-i="formDuration">Διάρκεια</label>
-              <select id="preferredDuration">
-                <option value="10-15 min">10–15 min</option>
-                <option value="20-30 min">20–30 min</option>
-                <option value="35-45 min">35–45 min</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="daysPerWeek" data-i="formDays">Ημέρες ανά εβδομάδα</label>
-              <select id="daysPerWeek">
-                <option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option>
-              </select>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3 style="color:var(--pink);font-size:25px">GLOW & GROW</h3>
+        <p data-en="Let's grow stronger together.">Ας γίνουμε πιο δυνατές μαζί.</p>
+        <p>✉️ <a href="mailto:growandglow@gmail.com">growandglow@gmail.com</a></p>
+        <p>STRONGER EVERY DAY. GLOW YOUR WAY.</p>
+      </div>
+
+      <div class="progress-panel">
+        <form id="contactForm">
+          <div class="form-grid">
+            <div class="field full">
+              <label for="contactName" data-en="Your name">Το όνομά σου</label>
+              <input id="contactName" type="text" required maxlength="100">
             </div>
             <div class="field full">
-              <label for="extraNotes" data-i="formNotes">Επιπλέον πληροφορίες</label>
-              <textarea id="extraNotes" maxlength="1000" data-placeholder-el="Πες μας τι θα ήθελες να λάβουμε υπόψη..." data-placeholder-en="Tell us anything you'd like us to consider..."></textarea>
+              <label for="contactEmail" data-en="Your email">Το email σου</label>
+              <input id="contactEmail" type="email" required maxlength="150">
             </div>
             <div class="field full">
-              <label class="checkbox-line">
-                <input type="checkbox" id="consent" required>
-                <span data-i="consentText">Συμφωνώ να χρησιμοποιηθούν τα στοιχεία μου για την απάντηση στο αίτημά μου μέσω email.</span>
-              </label>
-            </div>
-            <div class="field full">
-              <button class="btn" type="submit" data-i="sendRequest">Δημιουργία email αιτήματος</button>
+              <label for="contactMessage" data-en="Your message">Το μήνυμά σου</label>
+              <textarea id="contactMessage" rows="4" required maxlength="2000"></textarea>
             </div>
           </div>
+          <div class="form-actions">
+            <button type="submit" class="btn" data-en="Send message">Αποστολή μηνύματος</button>
+          </div>
+          <p class="notice" id="contactNotice" role="status"></p>
         </form>
-        <p class="notice" data-i="mailtoNotice">Η φόρμα ανοίγει την εφαρμογή email σου με έτοιμο μήνυμα. Θα χρειαστεί να πατήσεις «Αποστολή» εκεί. Δεν αποστέλλεται αυτόματα.</p>
-      </div>
-
-      <div class="panel">
-        <h3 data-i="followTitle">Βρες μας στα social</h3>
-        <p style="color:var(--muted);font-size:13px;margin-top:9px" data-i="followText">Ακολούθησε το Glow & Grow για fitness inspiration, ιδέες και νέα challenges.</p>
-        <div class="socials">
-          <a class="social-link" href="https://www.instagram.com/glowandgrow.pt/" target="_blank" rel="noopener">Instagram ↗</a>
-          <a class="social-link" href="https://www.tiktok.com/@glowandgrow.pt" target="_blank" rel="noopener">TikTok ↗</a>
-          <a class="social-link" href="mailto:growandglow.pt@gmail.com">Email ↗</a>
-        </div>
-        <div style="margin-top:35px">
-          <span class="eyebrow">GLOW & GROW</span>
-          <h3 style="font-size:25px;margin-top:10px" data-i="newsletterTitle">Stay inspired.</h3>
-          <p style="color:var(--muted);font-size:13px;margin:10px 0 18px" data-i="newsletterText">Θέλεις να λαμβάνεις νέα και fitness inspiration; Επικοινώνησε μαζί μας για να ενημερωθείς για το newsletter.</p>
-          <a class="btn btn-outline" href="mailto:growandglow.pt@gmail.com?subject=Glow%20%26%20Grow%20Newsletter" data-i="newsletterButton">Ενδιαφέρομαι για newsletter</a>
-          <p class="notice" data-i="newsletterNote">Η εγγραφή στο newsletter δεν είναι ακόμη ενεργοποιημένη σε αυτή την ιστοσελίδα.</p>
-        </div>
       </div>
     </div>
   </div>
 </section>
+
 </main>
 
 <footer>
-  <div class="container">
-    <p><strong>GLOW & GROW.</strong> © <span id="year"></span> — <span data-i="footerText">Move with purpose. Grow with confidence.</span></p>
-    <p style="margin-top:8px" data-i="footerDisclaimer">Το περιεχόμενο είναι ενημερωτικό. Προσαρμόζεις την άσκηση στις δυνατότητές σου και ζητάς επαγγελματική καθοδήγηση όταν χρειάζεται.</p>
-  </div>
+  <p><strong>GLOW & GROW</strong></p>
+  <p>STRONGER EVERY DAY. GLOW YOUR WAY.</p>
+  <p>© <span id="year"></span> GLOW & GROW. All rights reserved.</p>
 </footer>
 
+<script>
+"use strict";
 
-const translations = {
-  el: {
-    navHome:"Αρχική",navWorkouts:"Προγράμματα",navProgress:"Πρόοδος",navNutrition:"Διατροφή",navWellness:"Ευεξία",navCommunity:"Κοινότητα",navBlog:"Blog",navContact:"Επικοινωνία",
-    heroEyebrow:"YOUR JOURNEY STARTS HERE",
-    heroTitle:'STRONGER<br>EVERY DAY.<br><span>GLOW</span> YOUR WAY.',
-    heroText:"Χτίσε δύναμη, αυτοπεποίθηση και υγιεινές συνήθειες. Κάθε μικρό βήμα μετράει. Ξεκίνα από εκεί που βρίσκεσαι.",
-    heroButton:"Βρες το πρόγραμμά σου",heroAbout:"Γνώρισε το Glow & Grow",
-    stat1:"Ευέλικτες προπονήσεις",stat2:"Επίπεδα δυσκολίας",stat3:"Ο δικός σου ρυθμός",
-    aboutTitle:'Δεν χρειάζεται να είσαι τέλεια.<br><span>Χρειάζεται να ξεκινήσεις.</span>',
-    aboutText:"Ένας χώρος για κίνηση, ισορροπία και μικρές καθημερινές νίκες.",
-    aboutCard1:"Κινήσου με τον τρόπο σου",aboutCard1Text:"Προπονήσεις που προσαρμόζονται στον χρόνο και στο επίπεδό σου.",
-    aboutCard2:"Θρέψε το σώμα σου",aboutCard2Text:"Απλές ιδέες διατροφής με έμφαση στην ισορροπία και την απόλαυση.",
-    aboutCard3:"Φρόντισε τον εαυτό σου",aboutCard3Text:"Ξεκούραση, συνέπεια και θετική σχέση με την άσκηση.",
-    workoutTitle:'Τα <span>προγράμματά</span> σου',workoutSubtitle:"Διάλεξε στόχο, επίπεδο και χρόνο. Ξεκίνα με τον δικό σου ρυθμό.",
-    levelLabel:"Επίπεδο",durationLabel:"Διάρκεια",beginner:"Αρχάριο",intermediate:"Μεσαίο",advanced:"Προχωρημένο",
-    quick:"Quick · 10–15 λεπτά",standard:"Standard · 20–30 λεπτά",extended:"Extended · 35–45 λεπτά",
-    progressTitle:'Κάθε προπόνηση <span>μετράει</span>',progressSubtitle:"Η πρόοδός σου αποθηκεύεται σε αυτή τη συσκευή.",
-    weeklyGoal:"Ο εβδομαδιαίος στόχος σου",goalText:"Πόσες προπονήσεις θέλεις να ολοκληρώνεις κάθε εβδομάδα;",
-    historyTitle:"Το ιστορικό σου",historyText:"Οι τελευταίες προπονήσεις που κατέγραψες.",
-    clearHistory:"Διαγραφή ιστορικού",privacyNote:"Τα δεδομένα προόδου αποθηκεύονται μόνο τοπικά στον browser σου. Αν αλλάξεις συσκευή ή καθαρίσεις τα δεδομένα περιήγησης, μπορεί να χαθούν.",
-    nutritionTitle:'Nutrition <span>& balance</span>',nutritionSubtitle:"Μικρές ιδέες για μια ισορροπημένη καθημερινότητα.",
-    nutrition1:"Ισορροπημένο πιάτο",nutrition1Text:"Συνδύασε λαχανικά, πηγή πρωτεΐνης, υδατάνθρακες και καλά λιπαρά.",
-    nutrition2:"Φαγητό και ενέργεια",nutrition2Text:"Φρόντισε να τρως αρκετά και τακτικά, ανάλογα με τις ανάγκες σου.",
-    nutrition3:"Ενυδάτωση",nutrition3Text:"Έχε νερό κοντά σου και προσαρμόζεις την πρόσληψη στις ανάγκες και τη δραστηριότητά σου.",
-    nutritionDisclaimer:"Το περιεχόμενο είναι γενική ενημέρωση και δεν αντικαθιστά εξατομικευμένη συμβουλή διαιτολόγου ή επαγγελματία υγείας.",
-    wellnessTitle:'Wellness <span>matters</span>',wellnessSubtitle:"Η φροντίδα σου δεν τελειώνει όταν τελειώνει η προπόνηση.",
-    wellness1:"Χρόνος για ηρεμία",wellness1Text:"Δοκίμασε λίγα λεπτά αναπνοών ή χαλάρωσης μέσα στην ημέρα.",
-    wellness2:"Ξεκούραση χωρίς ενοχές",wellness2Text:"Οι ημέρες αποκατάστασης είναι μέρος μιας βιώσιμης ρουτίνας.",
-    wellness3:"Μικρές καθημερινές συνήθειες",wellness3Text:"Ένας περίπατος, λίγη κίνηση και σταθερό πρόγραμμα ύπνου μπορούν να βοηθήσουν.",
-    communityTitle:'Η κοινότητά <span>μας</span>',communitySubtitle:"Μικρές προκλήσεις, θετική ενέργεια και συνέπεια.",
-    challengeEyebrow:"WEEKLY CHALLENGE",challengeTitle:"7 Days of Movement",challengeText:"Βάλε λίγη κίνηση στην καθημερινότητά σου για επτά ημέρες.",
-    challenge1:"Ημέρα 1: 10 λεπτά περπάτημα.",challenge2:"Ημέρα 2: 10 λεπτά διατάσεις.",challenge3:"Ημέρα 3: Μία σύντομη προπόνηση.",
-    challenge4:"Ημέρα 4: Περίπατος ή ήπια κίνηση.",challenge5:"Ημέρα 5: 10 λεπτά ενδυνάμωση.",challenge6:"Ημέρα 6: Pilates ή mobility.",challenge7:"Ημέρα 7: Ξεκούραση και ανασκόπηση.",
-    challengeButton:"Μοιράσου την πρόοδό σου",
-    blogTitle:'Inspire. Learn. <span>Grow.</span>',blogSubtitle:"Ιδέες και υπενθυμίσεις για το fitness journey σου.",
-    blog1:"Πώς να χτίσεις μια σταθερή ρουτίνα",blog1Text:"Ξεκίνα μικρά, διάλεξε ρεαλιστικούς στόχους και δώσε χρόνο στον εαυτό σου.",
-    blog2:"Η ξεκούραση είναι μέρος της προόδου",blog2Text:"Η αποκατάσταση βοηθά να διατηρείς μια πιο ισορροπημένη σχέση με την άσκηση.",
-    blog3:"Ισορροπία αντί για τελειότητα",blog3Text:"Η ευεξία χτίζεται με συνήθειες που μπορείς να διατηρήσεις.",
-    contactTitle:'Ας ξεκινήσουμε <span>μαζί</span>',contactSubtitle:"Στείλε αίτημα για ένα πρόγραμμα προσαρμοσμένο στις προτιμήσεις σου.",
-    requestTitle:"Ζήτησε το δικό σου πρόγραμμα",nameLabel:"Όνομα",emailLabel:"Email",formLevel:"Επίπεδο",formGoal:"Στόχος",
-    goalStrength:"Ενδυνάμωση",goalFitness:"Γενική φυσική κατάσταση",goalMobility:"Ευλυγισία και κινητικότητα",goalWellness:"Ευεξία",
-    formDuration:"Διάρκεια",formDays:"Ημέρες ανά εβδομάδα",formNotes:"Επιπλέον πληροφορίες",
-    consentText:"Συμφωνώ να χρησιμοποιηθούν τα στοιχεία μου για την απάντηση στο αίτημά μου μέσω email.",
-    sendRequest:"Δημιουργία email αιτήματος",
-    mailtoNotice:"Η φόρμα ανοίγει την εφαρμογή email σου με έτοιμο μήνυμα. Θα χρειαστεί να πατήσεις «Αποστολή» εκεί. Δεν αποστέλλεται αυτόματα.",
-    followTitle:"Βρες μας στα social",followText:"Ακολούθησε το Glow & Grow για fitness inspiration, ιδέες και νέα challenges.",
-    newsletterTitle:"Stay inspired.",newsletterText:"Θέλεις να λαμβάνεις νέα και fitness inspiration; Επικοινώνησε μαζί μας για να ενημερωθείς για το newsletter.",
-    newsletterButton:"Ενδιαφέρομαι για newsletter",newsletterNote:"Η εγγραφή στο newsletter δεν είναι ακόμη ενεργοποιημένη σε αυτή την ιστοσελίδα.",
-    footerText:"Move with purpose. Grow with confidence.",footerDisclaimer:"Το περιεχόμενο είναι ενημερωτικό. Προσαρμόζεις την άσκηση στις δυνατότητές σου και ζητάς επαγγελματική καθοδήγηση όταν χρειάζεται.",
-    logButton:"Κατέγραψα την προπόνηση",logged:"Η προπόνηση καταγράφηκε!",rounds:"Γύροι",rest:"Διάλειμμα",reps:"Επαναλήψεις",
-    goalReached:"Έφτασες τον εβδομαδιαίο στόχο σου! Μπράβο!",goalRemaining:"Συνέχισε! Κάθε προπόνηση σε φέρνει πιο κοντά στον στόχο σου.",
-    noHistory:"Δεν έχεις καταγράψει προπονήσεις ακόμη.",historyDate:"Προπόνηση",
-    clearConfirm:"Θέλεις σίγουρα να διαγράψεις όλο το ιστορικό;",
-    notePlaceholder:"Πες μας τι θα ήθελες να λάβουμε υπόψη...",
-    mailSubject:"Αίτημα εξατομικευμένου προγράμματος Glow & Grow",
-    showTip:"Δες τη συμβουλή",hideTip:"Απόκρυψη συμβουλής",
-    storageError:"Δεν ήταν δυνατή η αποθήκευση. Έλεγξε τις ρυθμίσεις του browser σου."
-  },
-  en: {
-    navHome:"Home",navWorkouts:"Workouts",navProgress:"Progress",navNutrition:"Nutrition",navWellness:"Wellness",navCommunity:"Community",navBlog:"Blog",navContact:"Contact",
-    heroEyebrow:"YOUR JOURNEY STARTS HERE",
-    heroTitle:'STRONGER<br>EVERY DAY.<br><span>GLOW</span> YOUR WAY.',
-    heroText:"Build strength, confidence and healthy habits. Every small step counts. Start right where you are.",
-    heroButton:"Find your workout",heroAbout:"Discover Glow & Grow",
-    stat1:"Flexible workouts",stat2:"Difficulty levels",stat3:"Your own pace",
-    aboutTitle:"You don't have to be perfect.<br><span>You just have to start.</span>",
-    aboutText:"A space for movement, balance and small everyday wins.",
-    aboutCard1:"Move your way",aboutCard1Text:"Workouts that adapt to your time and fitness level.",
-    aboutCard2:"Nourish your body",aboutCard2Text:"Simple nutrition ideas focused on balance and enjoyment.",
-    aboutCard3:"Take care of yourself",aboutCard3Text:"Rest, consistency and a positive relationship with exercise.",
-    workoutTitle:'Your <span>workouts</span>',workoutSubtitle:"Choose your goal, level and time. Move at your own pace.",
-    levelLabel:"Level",durationLabel:"Duration",beginner:"Beginner",intermediate:"Intermediate",advanced:"Advanced",
-    quick:"Quick · 10–15 minutes",standard:"Standard · 20–30 minutes",extended:"Extended · 35–45 minutes",
-    progressTitle:'Every workout <span>counts</span>',progressSubtitle:"Your progress is saved on this device.",
-    weeklyGoal:"Your weekly goal",goalText:"How many workouts would you like to complete each week?",
-    historyTitle:"Your history",historyText:"Your most recently logged workouts.",
-    clearHistory:"Delete history",privacyNote:"Progress data is stored locally in your browser. It may be lost if you change devices or clear browser data.",
-    nutritionTitle:'Nutrition <span>& balance</span>',nutritionSubtitle:"Small ideas for a more balanced everyday life.",
-    nutrition1:"Balanced plate",nutrition1Text:"Combine vegetables, a protein source, carbohydrates and healthy fats.",
-    nutrition2:"Food and energy",nutrition2Text:"Aim to eat enough and regularly, according to your needs.",
-    nutrition3:"Hydration",nutrition3Text:"Keep water nearby and adjust your intake to your needs and activity.",
-    nutritionDisclaimer:"This is general information and does not replace individual advice from a dietitian or healthcare professional.",
-    wellnessTitle:'Wellness <span>matters</span>',wellnessSubtitle:"Taking care of yourself doesn't end when your workout does.",
-    wellness1:"Make time to unwind",wellness1Text:"Try a few minutes of breathing or relaxation during your day.",
-    wellness2:"Rest without guilt",wellness2Text:"Recovery days are part of a sustainable routine.",
-    wellness3:"Small daily habits",wellness3Text:"A walk, gentle movement and a regular sleep schedule can help.",
-    communityTitle:'Our <span>community</span>',communitySubtitle:"Small challenges, positive energy and consistency.",
-    challengeEyebrow:"WEEKLY CHALLENGE",challengeTitle:"7 Days of Movement",challengeText:"Add a little movement to your everyday life for seven days.",
-    challenge1:"Day 1: 10-minute walk.",challenge2:"Day 2: 10 minutes of stretching.",challenge3:"Day 3: One short workout.",
-    challenge4:"Day 4: A walk or gentle movement.",challenge5:"Day 5: 10 minutes of strength work.",challenge6:"Day 6: Pilates or mobility.",challenge7:"Day 7: Rest and reflect.",
-    challengeButton:"Share your progress",
-    blogTitle:'Inspire. Learn. <span>Grow.</span>',blogSubtitle:"Ideas and reminders for your fitness journey.",
-    blog1:"How to build a consistent routine",blog1Text:"Start small, choose realistic goals and give yourself time.",
-    blog2:"Rest is part of progress",blog2Text:"Recovery helps you maintain a more balanced relationship with exercise.",
-    blog3:"Balance over perfection",blog3Text:"Wellness is built through habits you can maintain.",
-    contactTitle:'Let's start <span>together</span>',contactSubtitle:"Send a request for a workout plan tailored to your preferences.",
-    requestTitle:"Request your workout plan",nameLabel:"Name",emailLabel:"Email",formLevel:"Level",formGoal:"Goal",
-    goalStrength:"Strength",goalFitness:"General fitness",goalMobility:"Flexibility and mobility",goalWellness:"Wellness",
-    formDuration:"Duration",formDays:"Days per week",formNotes:"Additional information",
-    consentText:"I agree that my details may be used to respond to my request by email.",
-    sendRequest:"Create email request",
-    mailtoNotice:"The form opens your email app with a prepared message. You will need to press Send there. It does not send automatically.",
-    followTitle:"Find us on social media",followText:"Follow Glow & Grow for fitness inspiration, ideas and new challenges.",
-    newsletterTitle:"Stay inspired.",newsletterText:"Want updates and fitness inspiration? Contact us to ask about the newsletter.",
-    newsletterButton:"I'm interested in the newsletter",newsletterNote:"Newsletter signup is not yet active on this website.",
-    footerText:"Move with purpose. Grow with confidence.",footerDisclaimer:"This content is informational. Adapt exercise to your abilities and seek professional guidance when needed.",
-    logButton:"Log this workout",logged:"Workout logged!",rounds:"Rounds",rest:"Rest",reps:"Reps",
-    goalReached:"You've reached your weekly goal! Well done!",goalRemaining:"Keep going! Every workout brings you closer to your goal.",
-    noHistory:"You haven't logged any workouts yet.",historyDate:"Workout",
-    clearConfirm:"Are you sure you want to clear your entire history?",
-    notePlaceholder:"Tell us anything you'd like us to consider...",
-    mailSubject:"Glow & Grow personalized workout request",
-    showTip:"Show tip",hideTip:"Hide tip",
-    storageError:"Could not save. Please check your browser settings."
-  }
+const STORAGE_KEYS = {
+  workouts: "glowGrowWorkouts_v1",
+  goal: "glowGrowGoal_v1",
+  photos: "glowGrowPhotos_v1"
 };
 
-/* Τα προγράμματα και οι ασκήσεις διατηρούνται από τον αρχικό κώδικα. */
-const programs = [
+const workoutPrograms = [
   {
-    id:"legs",title:{el:"Πόδια & Γλουτοί",en:"Legs & Glutes"},
-    description:{el:"Ενδυνάμωση κάτω σώματος με βασικές ασκήσεις.",en:"Lower-body strength with foundational movements."},
-    image:"https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80",
-    exercises:[
-      {name:{el:"Squats",en:"Squats"},reps:[10,12,15],tip:{el:"Πόδια στο άνοιγμα των ώμων. Κάθισε πίσω και κράτησε τον κορμό σταθερό.",en:"Feet shoulder-width apart. Sit back and keep your torso steady."}},
-      {name:{el:"Glute Bridges",en:"Glute Bridges"},reps:[12,15,18],tip:{el:"Ξάπλωσε ανάσκελα, λύγισε τα γόνατα και σήκωσε τη λεκάνη ελεγχόμενα.",en:"Lie on your back, bend your knees and lift your hips with control."}},
-      {name:{el:"Reverse Lunges",en:"Reverse Lunges"},reps:[8,10,12],tip:{el:"Κάνε βήμα προς τα πίσω και λύγισε τα γόνατα όσο σε βολεύει.",en:"Step backward and bend both knees as far as comfortable."}},
-      {name:{el:"Calf Raises",en:"Calf Raises"},reps:[12,15,20],tip:{el:"Σήκωσε τις φτέρνες και κατέβα αργά.",en:"Raise your heels and lower slowly."}}
-    ]
+    name: "Full Body",
+    icon: "🔥",
+    description: "Μια ολοκληρωμένη προπόνηση για όλο το σώμα.",
+    exercises: ["Squats — 3 × 12", "Push-ups — 3 × 10", "Glute bridges — 3 × 15", "Plank — 3 × 30 sec"]
   },
   {
-    id:"core",title:{el:"Κοιλιακοί & Core",en:"Abs & Core"},
-    description:{el:"Ασκήσεις σταθεροποίησης και ενδυνάμωσης κορμού.",en:"Core stability and strengthening exercises."},
-    image:"https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=80",
-    exercises:[
-      {name:{el:"Dead Bug",en:"Dead Bug"},reps:[8,10,12],tip:{el:"Κράτησε τη μέση σταθερή καθώς τεντώνεις αντίθετο χέρι και πόδι.",en:"Keep your lower back steady as you extend opposite arm and leg."}},
-      {name:{el:"Bird Dog",en:"Bird Dog"},reps:[8,10,12],tip:{el:"Στα τέσσερα, τέντωσε αντίθετο χέρι και πόδι χωρίς να στρίβεις τη λεκάνη.",en:"On all fours, extend opposite arm and leg without rotating your hips."}},
-      {name:{el:"Plank",en:"Plank"},reps:[20,30,40],timed:true,tip:{el:"Στήριξε πήχεις και δάχτυλα ποδιών. Κράτησε το σώμα σε ευθεία.",en:"Support yourself on forearms and toes. Keep your body in a straight line."}},
-      {name:{el:"Heel Taps",en:"Heel Taps"},reps:[10,12,16],tip:{el:"Ξάπλωσε ανάσκελα και άγγιξε εναλλάξ τις φτέρνες με τα χέρια.",en:"Lie on your back and alternate reaching toward each heel."}}
-    ]
+    name: "Legs & Glutes",
+    icon: "🍑",
+    description: "Εστίαση στα πόδια και τους γλουτούς.",
+    exercises: ["Squats — 3 × 12", "Reverse lunges — 3 × 10", "Hip thrusts — 3 × 12", "Donkey kicks — 3 × 15"]
   },
   {
-    id:"full",title:{el:"Full Body",en:"Full Body"},
-    description:{el:"Μια ολοκληρωμένη προπόνηση για όλο το σώμα.",en:"A balanced workout for your whole body."},
-    image:"https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80",
-    exercises:[
-      {name:{el:"Bodyweight Squats",en:"Bodyweight Squats"},reps:[10,12,15],tip:{el:"Κάθισε προς τα πίσω με σταθερά πέλματα.",en:"Sit back while keeping your feet grounded."}},
-      {name:{el:"Wall Push-ups",en:"Wall Push-ups"},reps:[8,12,15],tip:{el:"Στήριξε τα χέρια στον τοίχο και λύγισε τους αγκώνες ελεγχόμενα.",en:"Place your hands on a wall and bend your elbows with control."}},
-      {name:{el:"Glute Bridges",en:"Glute Bridges"},reps:[12,15,18],tip:{el:"Σήκωσε τη λεκάνη χωρίς να υπερεκτείνεις τη μέση.",en:"Lift your hips without overextending your lower back."}},
-      {name:{el:"Marching in Place",en:"Marching in Place"},reps:[30,40,50],timed:true,tip:{el:"Περπάτησε επιτόπου με ελεγχόμενη κίνηση.",en:"March in place with controlled movement."}}
-    ]
+    name: "Upper Body",
+    icon: "💪",
+    description: "Ενδυνάμωση χεριών, ώμων και πλάτης.",
+    exercises: ["Arm circles — 2 × 30 sec", "Push-ups — 3 × 10", "Shoulder press — 3 × 12", "Bent-over rows — 3 × 12"]
   },
   {
-    id:"upper",title:{el:"Άνω Σώμα",en:"Upper Body"},
-    description:{el:"Ήπιες επιλογές ενδυνάμωσης για ώμους, πλάτη και χέρια.",en:"Accessible strengthening for shoulders, back and arms."},
-    image:"https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=900&q=80",
-    exercises:[
-      {name:{el:"Wall Push-ups",en:"Wall Push-ups"},reps:[8,12,15],tip:{el:"Κράτησε το σώμα σε ευθεία και τους αγκώνες ελεγχόμενους.",en:"Keep your body aligned and your elbows controlled."}},
-      {name:{el:"Arm Circles",en:"Arm Circles"},reps:[20,30,40],tip:{el:"Κάνε μικρούς κύκλους με τα χέρια, προς τις δύο κατευθύνσεις.",en:"Make small circles with your arms in both directions."}},
-      {name:{el:"Bird Dog",en:"Bird Dog"},reps:[8,10,12],tip:{el:"Τέντωσε αντίθετο χέρι και πόδι διατηρώντας σταθερό τον κορμό.",en:"Extend opposite arm and leg while keeping your core steady."}},
-      {name:{el:"Shoulder Taps",en:"Shoulder Taps"},reps:[8,10,12],tip:{el:"Από θέση σανίδας στα γόνατα, άγγιξε εναλλάξ τους ώμους.",en:"From a kneeling plank, alternate tapping your shoulders."}}
-    ]
+    name: "Abs & Core",
+    icon: "⚡",
+    description: "Εστίαση στον κορμό και τους κοιλιακούς.",
+    exercises: ["Crunches — 3 × 15", "Dead bugs — 3 × 12", "Bicycle crunches — 3 × 20", "Plank — 3 × 30 sec"]
   },
   {
-    id:"pilates",title:{el:"Pilates & Mobility",en:"Pilates & Mobility"},
-    description:{el:"Ελεγχόμενη κίνηση, ισορροπία και κινητικότητα.",en:"Controlled movement, balance and mobility."},
-    image:"https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80",
-    exercises:[
-      {name:{el:"Cat-Cow",en:"Cat-Cow"},reps:[8,10,12],tip:{el:"Στα τέσσερα, εναλλάσσεις ήπια καμπύλωση και έκταση της σπονδυλικής στήλης.",en:"On all fours, gently alternate rounding and extending your spine."}},
-      {name:{el:"Bird Dog",en:"Bird Dog"},reps:[8,10,12],tip:{el:"Κινήσου αργά και κράτησε τη λεκάνη σταθερή.",en:"Move slowly and keep your hips stable."}},
-      {name:{el:"Glute Bridge",en:"Glute Bridge"},reps:[10,12,15],tip:{el:"Σήκωσε και κατέβασε τη λεκάνη με έλεγχο.",en:"Raise and lower your hips with control."}},
-      {name:{el:"Child's Pose",en:"Child's Pose"},reps:[30,40,50],timed:true,tip:{el:"Κάθισε προς τις φτέρνες και άφησε τον κορμό να χαλαρώσει.",en:"Sit back toward your heels and relax your torso."}}
-    ]
+    name: "Cardio",
+    icon: "🏃‍♀️",
+    description: "Κίνηση για αντοχή και ενέργεια.",
+    exercises: ["March in place — 3 min", "Jumping jacks — 3 × 30 sec", "High knees — 3 × 30 sec", "Brisk walking — 10 min"]
   },
   {
-    id:"cardio",title:{el:"Cardio & Movement",en:"Cardio & Movement"},
-    description:{el:"Απλές επιλογές για να αυξήσεις σταδιακά την κίνηση.",en:"Simple options to gradually add more movement."},
-    image:"https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80",
-    exercises:[
-      {name:{el:"Marching in Place",en:"Marching in Place"},reps:[30,40,50],timed:true,tip:{el:"Περπάτησε επιτόπου και αύξησε σταδιακά τον ρυθμό.",en:"March in place and gradually increase your pace."}},
-      {name:{el:"Step Touch",en:"Step Touch"},reps:[30,40,50],timed:true,tip:{el:"Κάνε μικρά πλάγια βήματα εναλλάξ.",en:"Take small alternating side steps."}},
-      {name:{el:"Low-impact Jacks",en:"Low-impact Jacks"},reps:[20,30,40],tip:{el:"Άνοιγε εναλλάξ τα πόδια στο πλάι χωρίς άλμα.",en:"Step one foot out at a time without jumping."}},
-      {name:{el:"Standing Knee Raises",en:"Standing Knee Raises"},reps:[10,12,16],tip:{el:"Σήκωνε εναλλάξ τα γόνατα με σταθερό κορμό.",en:"Alternate lifting your knees while keeping your torso steady."}}
-    ]
+    name: "Stretch & Recovery",
+    icon: "🧘‍♀️",
+    description: "Ήπιες διατάσεις και αποκατάσταση.",
+    exercises: ["Neck stretches — 30 sec", "Cat-cow — 10 reps", "Child's pose — 45 sec", "Hamstring stretch — 30 sec"]
   }
 ];
 
-let currentLanguage = safeLanguage();
-
-function safeLanguage(){
-  try{
-    return localStorage.getItem("gg-language")==="en"?"en":"el";
-  }catch(error){return "el";}
+function readArray(key) {
+  try {
+    const value = JSON.parse(localStorage.getItem(key) || "[]");
+    return Array.isArray(value) ? value : [];
+  } catch (error) {
+    console.warn("Could not read saved data:", key, error);
+    return [];
+  }
 }
 
-function tr(key){
-  return translations[currentLanguage]?.[key] || translations.el[key] || key;
+function readText(key) {
+  try {
+    return localStorage.getItem(key) || "";
+  } catch (error) {
+    return "";
+  }
 }
 
-function safeRead(key,fallback){
-  try{
-    const raw=localStorage.getItem(key);
-    if(raw===null)return fallback;
-    return JSON.parse(raw);
-  }catch(error){return fallback;}
-}
-
-function safeWrite(key,value){
-  try{
-    localStorage.setItem(key,JSON.stringify(value));
+function saveData(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
     return true;
-  }catch(error){
-    alert(tr("storageError"));
+  } catch (error) {
+    console.error("Could not save data:", error);
     return false;
   }
 }
 
-function getWorkoutLogs(){
-  const value=safeRead("gg-workouts",[]);
-  if(!Array.isArray(value))return [];
-  return value.filter(log=>
-    log &&
-    typeof log==="object" &&
-    typeof log.date==="string" &&
-    typeof log.name==="string"
+let workouts = readArray(STORAGE_KEYS.workouts);
+let photos = readArray(STORAGE_KEYS.photos);
+
+const $ = (id) => document.getElementById(id);
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, character => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;"
+  })[character]);
+}
+
+function renderWorkoutCards() {
+  const container = $("workoutCards");
+
+  container.innerHTML = workoutPrograms.map((program, index) => `
+    <article class="card workout-card">
+      <div class="card-icon">${program.icon}</div>
+      <h3>${escapeHTML(program.name)}</h3>
+      <p>${escapeHTML(program.description)}</p>
+      <ol class="exercise-list">
+        ${program.exercises.map(exercise => `<li>${escapeHTML(exercise)}</li>`).join("")}
+      </ol>
+      <button class="btn btn-secondary start-workout" type="button" data-index="${index}">
+        Ξεκίνα την προπόνηση
+      </button>
+    </article>
+  `).join("");
+
+  container.querySelectorAll(".start-workout").forEach(button => {
+    button.addEventListener("click", () => {
+      const program = workoutPrograms[Number(button.dataset.index)];
+      $("workoutName").value = program.name;
+      $("workoutDuration").focus();
+      $("workoutMessage").textContent = "Επίλεξες: " + program.name + ". Καλή προπόνηση!";
+      $("progress").scrollIntoView({ behavior: "smooth" });
+    });
+  });
+}
+
+function renderStats() {
+  $("totalWorkouts").textContent = workouts.length;
+
+  const minutes = workouts.reduce((sum, workout) => {
+    return sum + (Number(workout.duration) || 0);
+  }, 0);
+
+  $("totalMinutes").textContent = minutes;
+
+  const activeDays = new Set(
+    workouts.map(workout => {
+      const date = new Date(workout.date);
+      return isNaN(date.getTime()) ? "" : date.toDateString();
+    }).filter(Boolean)
   );
+
+  $("totalDays").textContent = activeDays.size;
 }
 
-function setLanguage(language){
-  currentLanguage=language==="en"?"en":"el";
-  try{localStorage.setItem("gg-language",currentLanguage);}catch(error){}
-  document.documentElement.lang=currentLanguage;
-  document.getElementById("grBtn").classList.toggle("active",currentLanguage==="el");
-  document.getElementById("enBtn").classList.toggle("active",currentLanguage==="en");
+function renderHistory() {
+  const container = $("workoutHistory");
 
-  document.querySelectorAll("[data-i]").forEach(el=>{
-    const key=el.dataset.i;
-    if(translations[currentLanguage][key])el.innerHTML=translations[currentLanguage][key];
+  if (!workouts.length) {
+    container.innerHTML = '<p class="empty-state">Δεν έχεις καταγράψει ακόμη κάποια προπόνηση. Ξεκίνα σήμερα! 💗</p>';
+    return;
+  }
+
+  const sorted = [...workouts].sort((a, b) => {
+    return new Date(b.date) - new Date(a.date);
   });
 
-  document.querySelectorAll("[data-placeholder-el]").forEach(el=>{
-    el.placeholder=currentLanguage==="el"?el.dataset.placeholderEl:el.dataset.placeholderEn;
-  });
+  container.innerHTML = sorted.map(workout => {
+    const date = new Date(workout.date);
+    const formattedDate = isNaN(date.getTime())
+      ? "Άγνωστη ημερομηνία"
+      : date.toLocaleString("el-GR");
 
-  renderPrograms();
-  renderProgress();
-}
-
-function toggleMenu(){
-  document.getElementById("navLinks").classList.toggle("open");
-}
-
-document.querySelectorAll(".nav-links a").forEach(link=>{
-  link.addEventListener("click",()=>{
-    document.getElementById("navLinks").classList.remove("open");
-  });
-});
-
-function getLevelIndex(){
-  return {beginner:0,intermediate:1,advanced:2}[
-    document.getElementById("levelSelect").value
-  ] ?? 0;
-}
-
-function getDuration(){
-  return document.getElementById("durationSelect").value;
-}
-
-function durationInfo(duration){
-  if(duration==="quick")return {rounds:1,rest:20,time:"10–15"};
-  if(duration==="extended")return {rounds:3,rest:45,time:"35–45"};
-  return {rounds:2,rest:30,time:"20–30"};
-}
-
-function renderPrograms(){
-  const level=document.getElementById("levelSelect").value;
-  const duration=getDuration();
-  const index=getLevelIndex();
-  const info=durationInfo(duration);
-  const grid=document.getElementById("programGrid");
-  grid.innerHTML="";
-
-  programs.forEach(program=>{
-    const exercises=program.exercises.map((ex,i)=>{
-      const amount=ex.reps[index];
-      const repText=ex.timed
-        ?(currentLanguage==="el"?amount+" δευτ.":amount+" sec")
-        :(amount+" "+tr("reps"));
-
-      return `<div class="exercise">
-        <strong>${ex.name[currentLanguage]}</strong>
-        <button class="tip-toggle" type="button"
-          aria-expanded="false"
-          onclick="toggleTip(this)">
-          ${tr("showTip")}
-        </button>
-        <div class="tip-content" hidden>${ex.tip[currentLanguage]}</div>
-        <div class="exercise-details">${repText} · ${tr("rest")}: ${info.rest} sec</div>
-      </div>`;
-    }).join("");
-
-    const card=document.createElement("article");
-    card.className="card program-card fade-in";
-    card.innerHTML=`
-      <div class="card-image">
-        <img loading="lazy" src="${program.image}" alt="${program.title[currentLanguage]}"
-          onerror="this.style.display='none'">
-      </div>
-      <div class="card-body">
-        <span class="tag">GLOW & GROW WORKOUT</span>
-        <h3>${program.title[currentLanguage]}</h3>
-        <p>${program.description[currentLanguage]}</p>
-        <div class="program-meta">
-          <span>${tr(level)}</span>
-          <span>${info.time} min</span>
-          <span>${info.rounds} ${tr("rounds")}</span>
+    return `
+      <div class="history-item">
+        <div>
+          <strong>${escapeHTML(workout.name)}</strong>
+          <br>
+          <small>${escapeHTML(formattedDate)}</small>
+          ${workout.notes ? `<br><small>${escapeHTML(workout.notes)}</small>` : ""}
         </div>
-        <div class="exercise-list">${exercises}</div>
-        <button class="btn" type="button" onclick="logWorkout('${program.id}')">
-          ${tr("logButton")}
-        </button>
-      </div>`;
-    grid.appendChild(card);
-  });
+        <div><strong>${Number(workout.duration)} min</strong></div>
+      </div>
+    `;
+  }).join("");
 }
 
-function toggleTip(button){
-  const content=button.nextElementSibling;
-  if(!content)return;
-
-  const willOpen=content.hidden;
-  content.hidden=!willOpen;
-  button.setAttribute("aria-expanded",String(willOpen));
-  button.textContent=willOpen?tr("hideTip"):tr("showTip");
+function refreshProgress() {
+  renderStats();
+  renderHistory();
 }
 
-function logWorkout(programId){
-  const program=programs.find(item=>item.id===programId);
-  if(!program)return;
+$("workoutForm").addEventListener("submit", event => {
+  event.preventDefault();
 
-  const logs=getWorkoutLogs();
+  const name = $("workoutName").value;
+  const duration = Number($("workoutDuration").value);
+  const notes = $("workoutNotes").value.trim();
 
-  const newLog={
-    id:Date.now(),
-    name:program.title[currentLanguage],
-    date:new Date().toISOString()
+  if (!name || !Number.isFinite(duration) || duration < 1 || duration > 600) {
+    $("workoutMessage").textContent = "Έλεγξε την προπόνηση και τη διάρκεια.";
+    return;
+  }
+
+  const entry = {
+    id: Date.now().toString(),
+    name,
+    duration,
+    notes,
+    date: new Date().toISOString()
   };
 
-  logs.unshift(newLog);
+  workouts.push(entry);
 
-  if(!safeWrite("gg-workouts",logs.slice(0,100)))return;
-
-  renderProgress();
-  alert(tr("logged"));
-}
-
-function startOfWeek(date){
-  const d=new Date(date);
-  d.setHours(0,0,0,0);
-  const day=(d.getDay()+6)%7;
-  d.setDate(d.getDate()-day);
-  return d;
-}
-
-function renderProgress(){
-  const logs=getWorkoutLogs();
-  const savedGoal=Number(safeRead("gg-goal",3));
-  const goal=[2,3,4,5,6].includes(savedGoal)?savedGoal:3;
-
-  const goalSelect=document.getElementById("weeklyGoal");
-  if(goalSelect)goalSelect.value=String(goal);
-
-  const weekStart=startOfWeek(new Date());
-
-  const thisWeek=logs.filter(log=>{
-    const date=new Date(log.date);
-    return !isNaN(date.getTime()) && date>=weekStart;
-  }).length;
-
-  document.getElementById("progressNumber").textContent=`${thisWeek}/${goal}`;
-  document.getElementById("progressFill").style.width=
-    Math.min(100,thisWeek/goal*100)+"%";
-
-  document.getElementById("goalMessage").textContent=
-    thisWeek>=goal?tr("goalReached"):tr("goalRemaining");
-
-  const history=document.getElementById("workoutHistory");
-  history.innerHTML="";
-
-  if(!logs.length){
-    history.innerHTML=`<li>${tr("noHistory")}</li>`;
+  if (!saveData(STORAGE_KEYS.workouts, workouts)) {
+    workouts.pop();
+    $("workoutMessage").textContent = "Δεν ήταν δυνατή η αποθήκευση. Έλεγξε τον διαθέσιμο χώρο του browser.";
     return;
   }
 
-  logs.slice(0,7).forEach(log=>{
-    const date=new Date(log.date);
-    const item=document.createElement("li");
-    item.textContent=
-      `${log.name} — ${date.toLocaleDateString(currentLanguage==="el"?"el-GR":"en-GB")}`;
-    history.appendChild(item);
+  $("workoutForm").reset();
+  $("workoutMessage").textContent = "Η προπόνησή σου καταγράφηκε! Μπράβο! 💗";
+  refreshProgress();
+});
+
+$("clearHistoryBtn").addEventListener("click", () => {
+  if (!workouts.length) {
+    $("workoutMessage").textContent = "Το ιστορικό είναι ήδη άδειο.";
+    return;
+  }
+
+  if (!confirm("Θέλεις σίγουρα να διαγράψεις όλο το ιστορικό προπονήσεων;")) {
+    return;
+  }
+
+  const previous = workouts;
+  workouts = [];
+
+  if (!saveData(STORAGE_KEYS.workouts, workouts)) {
+    workouts = previous;
+    $("workoutMessage").textContent = "Δεν ήταν δυνατή η διαγραφή.";
+    return;
+  }
+
+  $("workoutMessage").textContent = "Το ιστορικό καθαρίστηκε.";
+  refreshProgress();
+});
+
+function renderGoal() {
+  $("savedGoal").textContent = readText(STORAGE_KEYS.goal)
+    ? "Ο στόχος σου: " + readText(STORAGE_KEYS.goal)
+    : "Δεν έχεις ορίσει ακόμη στόχο.";
+}
+
+$("goalForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const goal = $("goalInput").value.trim();
+
+  if (!goal) {
+    $("savedGoal").textContent = "Γράψε πρώτα τον στόχο σου.";
+    return;
+  }
+
+  try {
+    localStorage.setItem(STORAGE_KEYS.goal, goal);
+    $("goalInput").value = "";
+    renderGoal();
+  } catch (error) {
+    $("savedGoal").textContent = "Δεν ήταν δυνατή η αποθήκευση του στόχου.";
+  }
+});
+
+function renderPhotos() {
+  const grid = $("photoGrid");
+
+  grid.innerHTML = `
+    <div class="photo-box">
+      <strong>📸 Προσθήκη φωτογραφίας</strong>
+      <input type="file" id="photoUpload" accept="image/*" multiple>
+      <small style="color:#aaa">Επίλεξε φωτογραφίες από τη συσκευή σου.</small>
+    </div>
+  `;
+
+  photos.forEach(photo => {
+    const box = document.createElement("div");
+    box.className = "photo-box";
+
+    const image = document.createElement("img");
+    image.src = photo.data;
+    image.alt = "Φωτογραφία προόδου";
+
+    const date = document.createElement("small");
+    date.textContent = photo.date;
+
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.className = "btn btn-secondary";
+    remove.textContent = "Διαγραφή";
+
+    remove.addEventListener("click", () => {
+      photos = photos.filter(item => item.id !== photo.id);
+      if (saveData(STORAGE_KEYS.photos, photos)) {
+        renderPhotos();
+      } else {
+        photos.push(photo);
+        alert("Δεν ήταν δυνατή η διαγραφή.");
+      }
+    });
+
+    box.append(image, date, remove);
+    grid.appendChild(box);
+  });
+
+  $("photoUpload").addEventListener("change", async event => {
+    const files = Array.from(event.target.files || []);
+    if (!files.length) return;
+
+    for (const file of files) {
+      if (!file.type.startsWith("image/")) continue;
+
+      if (file.size > 2 * 1024 * 1024) {
+        alert("Κάθε φωτογραφία πρέπει να είναι έως 2MB.");
+        continue;
+      }
+
+      try {
+        const data = await resizeImage(file);
+        photos.push({
+          id: Date.now().toString() + Math.random().toString(16).slice(2),
+          data,
+          date: new Date().toLocaleDateString("el-GR")
+        });
+
+        if (!saveData(STORAGE_KEYS.photos, photos)) {
+          photos.pop();
+          alert("Δεν υπάρχει αρκετός διαθέσιμος χώρος για τη φωτογραφία.");
+        }
+      } catch (error) {
+        alert("Δεν ήταν δυνατή η φόρτωση αυτής της φωτογραφίας.");
+      }
+    }
+
+    renderPhotos();
   });
 }
 
-function saveGoal(){
-  const goal=Number(document.getElementById("weeklyGoal").value);
-  if(![2,3,4,5,6].includes(goal))return;
+function resizeImage(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
 
-  try{
-    localStorage.setItem("gg-goal",String(goal));
-  }catch(error){
-    alert(tr("storageError"));
-  }
-  renderProgress();
+    reader.onerror = reject;
+
+    reader.onload = () => {
+      const image = new Image();
+
+      image.onerror = reject;
+
+      image.onload = () => {
+        const maxSide = 900;
+        const scale = Math.min(1, maxSide / Math.max(image.width, image.height));
+        const canvas = document.createElement("canvas");
+
+        canvas.width = Math.max(1, Math.round(image.width * scale));
+        canvas.height = Math.max(1, Math.round(image.height * scale));
+
+        const context = canvas.getContext("2d");
+        context.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+        resolve(canvas.toDataURL("image/jpeg", 0.75));
+      };
+
+      image.src = reader.result;
+    };
+
+    reader.readAsDataURL(file);
+  });
 }
 
-function clearHistory(){
-  if(!confirm(tr("clearConfirm")))return;
+$("contactForm").addEventListener("submit", event => {
+  event.preventDefault();
 
-  try{
-    localStorage.removeItem("gg-workouts");
-  }catch(error){
-    alert(tr("storageError"));
+  const name = $("contactName").value.trim();
+  const email = $("contactEmail").value.trim();
+  const message = $("contactMessage").value.trim();
+
+  if (!name || !email || !message) {
+    $("contactNotice").textContent = "Συμπλήρωσε όλα τα πεδία.";
     return;
   }
-  renderProgress();
-}
 
-document.getElementById("requestForm").addEventListener("submit",function(event){
-  event.preventDefault();
-  if(!this.reportValidity())return;
-
-  const name=document.getElementById("visitorName").value.trim();
-  const email=document.getElementById("visitorEmail").value.trim();
-  const level=document.getElementById("fitnessLevel").value;
-  const goal=document.getElementById("fitnessGoal").selectedOptions[0].textContent;
-  const duration=document.getElementById("preferredDuration").value;
-  const days=document.getElementById("daysPerWeek").value;
-  const notes=document.getElementById("extraNotes").value.trim();
-
-  const subject=encodeURIComponent(tr("mailSubject"));
-  const body=encodeURIComponent(
-    `Name: ${name}\nEmail: ${email}\nLevel: ${level}\nGoal: ${goal}\nPreferred duration: ${duration}\nDays per week: ${days}\nAdditional information: ${notes}`
+  const subject = encodeURIComponent("Μήνυμα από το GLOW & GROW website");
+  const body = encodeURIComponent(
+    "Όνομα: " + name + "\nEmail: " + email + "\n\nΜήνυμα:\n" + message
   );
 
-  window.location.href=
-    `mailto:growandglow.pt@gmail.com?subject=${subject}&body=${body}`;
+  $("contactNotice").textContent = "Ανοίγει το email σου για να στείλεις το μήνυμα.";
+
+  window.location.href =
+    "mailto:growandglow@gmail.com?subject=" + subject + "&body=" + body;
 });
 
-document.getElementById("year").textContent=new Date().getFullYear();
+const translations = {
+  // Τα data-en attributes χρησιμοποιούνται για την αγγλική έκδοση.
+};
 
-setLanguage(currentLanguage);
-renderProgress();
+let currentLanguage = "el";
+
+$("languageBtn").addEventListener("click", () => {
+  currentLanguage = currentLanguage === "el" ? "en" : "el";
+  document.documentElement.lang = currentLanguage;
+
+  document.querySelectorAll("[data-en]").forEach(element => {
+    if (!element.dataset.el) {
+      element.dataset.el = element.textContent;
+    }
+
+    element.textContent = currentLanguage === "en"
+      ? element.dataset.en
+      : element.dataset.el;
+  });
+
+  $("languageBtn").textContent = currentLanguage === "en" ? "GR" : "EN";
+});
+
+$("menuBtn").addEventListener("click", () => {
+  $("navLinks").classList.toggle("open");
+});
+
+document.querySelectorAll("#navLinks a").forEach(link => {
+  link.addEventListener("click", () => {
+    $("navLinks").classList.remove("open");
+  });
+});
+
+$("year").textContent = new Date().getFullYear();
+
+renderWorkoutCards();
+refreshProgress();
+renderGoal();
+renderPhotos();
+</script>
 
 </body>
 </html>
-
-
-
