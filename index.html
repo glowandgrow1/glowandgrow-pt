@@ -167,6 +167,35 @@ footer strong{color:var(--pink)}
   .program-controls{align-items:stretch}
   .control{width:100%}
 }
+  
+.tip-toggle{
+  display:inline-flex;
+  margin-top:8px;
+  padding:7px 12px;
+  border:1px solid var(--pink);
+  border-radius:20px;
+  background:transparent;
+  color:var(--pink);
+  font-size:11px;
+  font-weight:800;
+}
+.tip-toggle:hover{
+  background:var(--pink);
+  color:white;
+}
+.tip-content{
+  margin-top:9px;
+  padding:10px;
+  background:#202020;
+  border-left:2px solid var(--pink);
+  border-radius:7px;
+  font-size:12px;
+  color:#eee;
+}
+.tip-content[hidden]{
+  display:none;
+}
+
 </style>
 </head>
 
@@ -491,9 +520,9 @@ footer strong{color:var(--pink)}
   </div>
 </footer>
 
-<script>
+
 const translations = {
-  el:{
+  el: {
     navHome:"Αρχική",navWorkouts:"Προγράμματα",navProgress:"Πρόοδος",navNutrition:"Διατροφή",navWellness:"Ευεξία",navCommunity:"Κοινότητα",navBlog:"Blog",navContact:"Επικοινωνία",
     heroEyebrow:"YOUR JOURNEY STARTS HERE",
     heroTitle:'STRONGER<br>EVERY DAY.<br><span>GLOW</span> YOUR WAY.',
@@ -511,7 +540,7 @@ const translations = {
     progressTitle:'Κάθε προπόνηση <span>μετράει</span>',progressSubtitle:"Η πρόοδός σου αποθηκεύεται σε αυτή τη συσκευή.",
     weeklyGoal:"Ο εβδομαδιαίος στόχος σου",goalText:"Πόσες προπονήσεις θέλεις να ολοκληρώνεις κάθε εβδομάδα;",
     historyTitle:"Το ιστορικό σου",historyText:"Οι τελευταίες προπονήσεις που κατέγραψες.",
-    clearHistory:"Καθαρισμός ιστορικού",privacyNote:"Τα δεδομένα προόδου αποθηκεύονται μόνο τοπικά στον browser σου. Αν αλλάξεις συσκευή ή καθαρίσεις τα δεδομένα περιήγησης, μπορεί να χαθούν.",
+    clearHistory:"Διαγραφή ιστορικού",privacyNote:"Τα δεδομένα προόδου αποθηκεύονται μόνο τοπικά στον browser σου. Αν αλλάξεις συσκευή ή καθαρίσεις τα δεδομένα περιήγησης, μπορεί να χαθούν.",
     nutritionTitle:'Nutrition <span>& balance</span>',nutritionSubtitle:"Μικρές ιδέες για μια ισορροπημένη καθημερινότητα.",
     nutrition1:"Ισορροπημένο πιάτο",nutrition1Text:"Συνδύασε λαχανικά, πηγή πρωτεΐνης, υδατάνθρακες και καλά λιπαρά.",
     nutrition2:"Φαγητό και ενέργεια",nutrition2Text:"Φρόντισε να τρως αρκετά και τακτικά, ανάλογα με τις ανάγκες σου.",
@@ -546,9 +575,11 @@ const translations = {
     noHistory:"Δεν έχεις καταγράψει προπονήσεις ακόμη.",historyDate:"Προπόνηση",
     clearConfirm:"Θέλεις σίγουρα να διαγράψεις όλο το ιστορικό;",
     notePlaceholder:"Πες μας τι θα ήθελες να λάβουμε υπόψη...",
-    mailSubject:"Αίτημα εξατομικευμένου προγράμματος Glow & Grow"
+    mailSubject:"Αίτημα εξατομικευμένου προγράμματος Glow & Grow",
+    showTip:"Δες τη συμβουλή",hideTip:"Απόκρυψη συμβουλής",
+    storageError:"Δεν ήταν δυνατή η αποθήκευση. Έλεγξε τις ρυθμίσεις του browser σου."
   },
-  en:{
+  en: {
     navHome:"Home",navWorkouts:"Workouts",navProgress:"Progress",navNutrition:"Nutrition",navWellness:"Wellness",navCommunity:"Community",navBlog:"Blog",navContact:"Contact",
     heroEyebrow:"YOUR JOURNEY STARTS HERE",
     heroTitle:'STRONGER<br>EVERY DAY.<br><span>GLOW</span> YOUR WAY.',
@@ -566,7 +597,7 @@ const translations = {
     progressTitle:'Every workout <span>counts</span>',progressSubtitle:"Your progress is saved on this device.",
     weeklyGoal:"Your weekly goal",goalText:"How many workouts would you like to complete each week?",
     historyTitle:"Your history",historyText:"Your most recently logged workouts.",
-    clearHistory:"Clear history",privacyNote:"Progress data is stored locally in your browser. It may be lost if you change devices or clear browser data.",
+    clearHistory:"Delete history",privacyNote:"Progress data is stored locally in your browser. It may be lost if you change devices or clear browser data.",
     nutritionTitle:'Nutrition <span>& balance</span>',nutritionSubtitle:"Small ideas for a more balanced everyday life.",
     nutrition1:"Balanced plate",nutrition1Text:"Combine vegetables, a protein source, carbohydrates and healthy fats.",
     nutrition2:"Food and energy",nutrition2Text:"Aim to eat enough and regularly, according to your needs.",
@@ -601,10 +632,13 @@ const translations = {
     noHistory:"You haven't logged any workouts yet.",historyDate:"Workout",
     clearConfirm:"Are you sure you want to clear your entire history?",
     notePlaceholder:"Tell us anything you'd like us to consider...",
-    mailSubject:"Glow & Grow personalized workout request"
+    mailSubject:"Glow & Grow personalized workout request",
+    showTip:"Show tip",hideTip:"Hide tip",
+    storageError:"Could not save. Please check your browser settings."
   }
 };
 
+/* Τα προγράμματα και οι ασκήσεις διατηρούνται από τον αρχικό κώδικα. */
 const programs = [
   {
     id:"legs",title:{el:"Πόδια & Γλουτοί",en:"Legs & Glutes"},
@@ -674,23 +708,63 @@ const programs = [
   }
 ];
 
-let currentLanguage = localStorage.getItem("gg-language") || "el";
+let currentLanguage = safeLanguage();
 
-function tr(key){return translations[currentLanguage][key] || key;}
+function safeLanguage(){
+  try{
+    return localStorage.getItem("gg-language")==="en"?"en":"el";
+  }catch(error){return "el";}
+}
+
+function tr(key){
+  return translations[currentLanguage]?.[key] || translations.el[key] || key;
+}
+
+function safeRead(key,fallback){
+  try{
+    const raw=localStorage.getItem(key);
+    if(raw===null)return fallback;
+    return JSON.parse(raw);
+  }catch(error){return fallback;}
+}
+
+function safeWrite(key,value){
+  try{
+    localStorage.setItem(key,JSON.stringify(value));
+    return true;
+  }catch(error){
+    alert(tr("storageError"));
+    return false;
+  }
+}
+
+function getWorkoutLogs(){
+  const value=safeRead("gg-workouts",[]);
+  if(!Array.isArray(value))return [];
+  return value.filter(log=>
+    log &&
+    typeof log==="object" &&
+    typeof log.date==="string" &&
+    typeof log.name==="string"
+  );
+}
 
 function setLanguage(language){
-  currentLanguage=language;
-  localStorage.setItem("gg-language",language);
-  document.documentElement.lang=language;
-  document.getElementById("grBtn").classList.toggle("active",language==="el");
-  document.getElementById("enBtn").classList.toggle("active",language==="en");
+  currentLanguage=language==="en"?"en":"el";
+  try{localStorage.setItem("gg-language",currentLanguage);}catch(error){}
+  document.documentElement.lang=currentLanguage;
+  document.getElementById("grBtn").classList.toggle("active",currentLanguage==="el");
+  document.getElementById("enBtn").classList.toggle("active",currentLanguage==="en");
+
   document.querySelectorAll("[data-i]").forEach(el=>{
     const key=el.dataset.i;
-    if(translations[language][key]) el.innerHTML=translations[language][key];
+    if(translations[currentLanguage][key])el.innerHTML=translations[currentLanguage][key];
   });
+
   document.querySelectorAll("[data-placeholder-el]").forEach(el=>{
-    el.placeholder=language==="el"?el.dataset.placeholderEl:el.dataset.placeholderEn;
+    el.placeholder=currentLanguage==="el"?el.dataset.placeholderEl:el.dataset.placeholderEn;
   });
+
   renderPrograms();
   renderProgress();
 }
@@ -698,23 +772,23 @@ function setLanguage(language){
 function toggleMenu(){
   document.getElementById("navLinks").classList.toggle("open");
 }
+
 document.querySelectorAll(".nav-links a").forEach(link=>{
-  link.addEventListener("click",()=>document.getElementById("navLinks").classList.remove("open"));
+  link.addEventListener("click",()=>{
+    document.getElementById("navLinks").classList.remove("open");
+  });
 });
 
-function safeRead(key,fallback){
-  try{
-    const value=JSON.parse(localStorage.getItem(key));
-    return value===null?fallback:value;
-  }catch(e){return fallback;}
+function getLevelIndex(){
+  return {beginner:0,intermediate:1,advanced:2}[
+    document.getElementById("levelSelect").value
+  ] ?? 0;
 }
 
-function getLevelIndex(){
-  return {beginner:0,intermediate:1,advanced:2}[document.getElementById("levelSelect").value] ?? 0;
-}
 function getDuration(){
   return document.getElementById("durationSelect").value;
 }
+
 function durationInfo(duration){
   if(duration==="quick")return {rounds:1,rest:20,time:"10–15"};
   if(duration==="extended")return {rounds:3,rest:45,time:"35–45"};
@@ -730,45 +804,75 @@ function renderPrograms(){
   grid.innerHTML="";
 
   programs.forEach(program=>{
-    const exercises=program.exercises.map(ex=>{
+    const exercises=program.exercises.map((ex,i)=>{
       const amount=ex.reps[index];
-      const repText=ex.timed?(currentLanguage==="el"?amount+" δευτ.":amount+" sec"):(amount+" "+tr("reps"));
+      const repText=ex.timed
+        ?(currentLanguage==="el"?amount+" δευτ.":amount+" sec")
+        :(amount+" "+tr("reps"));
+
       return `<div class="exercise">
         <strong>${ex.name[currentLanguage]}</strong>
-        <small>${ex.tip[currentLanguage]}</small>
+        <button class="tip-toggle" type="button"
+          aria-expanded="false"
+          onclick="toggleTip(this)">
+          ${tr("showTip")}
+        </button>
+        <div class="tip-content" hidden>${ex.tip[currentLanguage]}</div>
         <div class="exercise-details">${repText} · ${tr("rest")}: ${info.rest} sec</div>
       </div>`;
     }).join("");
 
-    const levelName=tr(level);
     const card=document.createElement("article");
     card.className="card program-card fade-in";
     card.innerHTML=`
-      <div class="card-image"><img loading="lazy" src="${program.image}" alt="${program.title[currentLanguage]}"></div>
+      <div class="card-image">
+        <img loading="lazy" src="${program.image}" alt="${program.title[currentLanguage]}"
+          onerror="this.style.display='none'">
+      </div>
       <div class="card-body">
         <span class="tag">GLOW & GROW WORKOUT</span>
         <h3>${program.title[currentLanguage]}</h3>
         <p>${program.description[currentLanguage]}</p>
         <div class="program-meta">
-          <span>${levelName}</span><span>${info.time} min</span><span>${info.rounds} ${tr("rounds")}</span>
+          <span>${tr(level)}</span>
+          <span>${info.time} min</span>
+          <span>${info.rounds} ${tr("rounds")}</span>
         </div>
         <div class="exercise-list">${exercises}</div>
-        <button class="btn" onclick="logWorkout('${program.id}')">${tr("logButton")}</button>
+        <button class="btn" type="button" onclick="logWorkout('${program.id}')">
+          ${tr("logButton")}
+        </button>
       </div>`;
     grid.appendChild(card);
   });
 }
 
+function toggleTip(button){
+  const content=button.nextElementSibling;
+  if(!content)return;
+
+  const willOpen=content.hidden;
+  content.hidden=!willOpen;
+  button.setAttribute("aria-expanded",String(willOpen));
+  button.textContent=willOpen?tr("hideTip"):tr("showTip");
+}
+
 function logWorkout(programId){
-  const program=programs.find(p=>p.id===programId);
+  const program=programs.find(item=>item.id===programId);
   if(!program)return;
-  const logs=safeRead("gg-workouts",[]);
-  logs.unshift({
+
+  const logs=getWorkoutLogs();
+
+  const newLog={
     id:Date.now(),
     name:program.title[currentLanguage],
     date:new Date().toISOString()
-  });
-  localStorage.setItem("gg-workouts",JSON.stringify(logs.slice(0,100)));
+  };
+
+  logs.unshift(newLog);
+
+  if(!safeWrite("gg-workouts",logs.slice(0,100)))return;
+
   renderProgress();
   alert(tr("logged"));
 }
@@ -780,49 +884,74 @@ function startOfWeek(date){
   d.setDate(d.getDate()-day);
   return d;
 }
+
 function renderProgress(){
-  const logs=safeRead("gg-workouts",[]);
-  const goal=Number(localStorage.getItem("gg-goal")||3);
+  const logs=getWorkoutLogs();
+  const savedGoal=Number(safeRead("gg-goal",3));
+  const goal=[2,3,4,5,6].includes(savedGoal)?savedGoal:3;
+
   const goalSelect=document.getElementById("weeklyGoal");
   if(goalSelect)goalSelect.value=String(goal);
 
   const weekStart=startOfWeek(new Date());
+
   const thisWeek=logs.filter(log=>{
-    const d=new Date(log.date);
-    return !isNaN(d.getTime()) && d>=weekStart;
+    const date=new Date(log.date);
+    return !isNaN(date.getTime()) && date>=weekStart;
   }).length;
 
   document.getElementById("progressNumber").textContent=`${thisWeek}/${goal}`;
-  document.getElementById("progressFill").style.width=Math.min(100,thisWeek/goal*100)+"%";
-  document.getElementById("goalMessage").textContent=thisWeek>=goal?tr("goalReached"):tr("goalRemaining");
+  document.getElementById("progressFill").style.width=
+    Math.min(100,thisWeek/goal*100)+"%";
+
+  document.getElementById("goalMessage").textContent=
+    thisWeek>=goal?tr("goalReached"):tr("goalRemaining");
 
   const history=document.getElementById("workoutHistory");
   history.innerHTML="";
+
   if(!logs.length){
     history.innerHTML=`<li>${tr("noHistory")}</li>`;
     return;
   }
+
   logs.slice(0,7).forEach(log=>{
     const date=new Date(log.date);
     const item=document.createElement("li");
-    item.textContent=`${log.name} — ${date.toLocaleDateString(currentLanguage==="el"?"el-GR":"en-GB")}`;
+    item.textContent=
+      `${log.name} — ${date.toLocaleDateString(currentLanguage==="el"?"el-GR":"en-GB")}`;
     history.appendChild(item);
   });
 }
+
 function saveGoal(){
-  localStorage.setItem("gg-goal",document.getElementById("weeklyGoal").value);
+  const goal=Number(document.getElementById("weeklyGoal").value);
+  if(![2,3,4,5,6].includes(goal))return;
+
+  try{
+    localStorage.setItem("gg-goal",String(goal));
+  }catch(error){
+    alert(tr("storageError"));
+  }
   renderProgress();
 }
+
 function clearHistory(){
-  if(confirm(tr("clearConfirm"))){
+  if(!confirm(tr("clearConfirm")))return;
+
+  try{
     localStorage.removeItem("gg-workouts");
-    renderProgress();
+  }catch(error){
+    alert(tr("storageError"));
+    return;
   }
+  renderProgress();
 }
 
 document.getElementById("requestForm").addEventListener("submit",function(event){
   event.preventDefault();
   if(!this.reportValidity())return;
+
   const name=document.getElementById("visitorName").value.trim();
   const email=document.getElementById("visitorEmail").value.trim();
   const level=document.getElementById("fitnessLevel").value;
@@ -835,13 +964,16 @@ document.getElementById("requestForm").addEventListener("submit",function(event)
   const body=encodeURIComponent(
     `Name: ${name}\nEmail: ${email}\nLevel: ${level}\nGoal: ${goal}\nPreferred duration: ${duration}\nDays per week: ${days}\nAdditional information: ${notes}`
   );
-  window.location.href=`mailto:growandglow.pt@gmail.com?subject=${subject}&body=${body}`;
+
+  window.location.href=
+    `mailto:growandglow.pt@gmail.com?subject=${subject}&body=${body}`;
 });
 
 document.getElementById("year").textContent=new Date().getFullYear();
+
 setLanguage(currentLanguage);
 renderProgress();
-</script>
+
 </body>
 </html>
 
