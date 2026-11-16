@@ -1,0 +1,623 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<meta name="description" content="Glow & Grow - Fitness, Wellness and Lifestyle">
+<title>Glow & Grow | Fitness & Wellness</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --pink: #ff29b8;
+  --lightpink: #ff80d5;
+  --black: #080808;
+  --card: #151015;
+  --white: #ffffff;
+  --gray: #bdb5bd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* NAVIGATION */
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  background: rgba(8,8,8,.92);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid #292029;
+}
+
+.navbar {
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.logo span { color: var(--pink); }
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ddd;
+  transition: .3s;
+}
+
+.nav-links a:hover { color: var(--pink); }
+
+.lang-btn {
+  background: transparent;
+  border: 1px solid var(--pink);
+  padding: 9px 15px;
+  border-radius: 30px;
+  color: var(--pink);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  color: white;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background:
+    linear-gradient(90deg, #080808 5%, rgba(8,8,8,.8) 50%, rgba(8,8,8,.3)),
+    linear-gradient(0deg, #080808, transparent 35%),
+    url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2000&q=85')
+    center/cover no-repeat;
+}
+
+.hero-content {
+  padding-top: 90px;
+  max-width: 750px;
+}
+
+.tag {
+  color: var(--pink);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 5px;
+}
+
+.hero h1 {
+  font-size: clamp(48px, 8vw, 100px);
+  font-weight: 900;
+  line-height: 1.03;
+  margin: 25px 0;
+}
+
+.hero h1 span {
+  color: var(--pink);
+  text-shadow: 0 0 35px #ff29b877;
+}
+
+.hero p {
+  max-width: 550px;
+  color: #ddd;
+  line-height: 1.9;
+  font-size: 15px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--pink);
+  color: #080808;
+  padding: 16px 28px;
+  border-radius: 4px;
+  margin-top: 30px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: white;
+  box-shadow: 0 0 30px var(--pink);
+  transform: translateY(-3px);
+}
+
+/* GENERAL SECTIONS */
+
+section { padding: 100px 0; }
+
+.section-title {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.section-title small {
+  color: var(--pink);
+  font-size: 12px;
+  letter-spacing: 5px;
+  font-weight: 800;
+}
+
+.section-title h2 {
+  font-size: clamp(30px, 5vw, 48px);
+  margin-top: 15px;
+  font-weight: 900;
+}
+
+.section-title h2 span { color: var(--pink); }
+
+.section-title p {
+  color: var(--gray);
+  margin-top: 15px;
+  line-height: 1.8;
+}
+
+/* CATEGORIES */
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.category {
+  background: var(--card);
+  border: 1px solid #302430;
+  overflow: hidden;
+  transition: .4s;
+}
+
+.category:hover {
+  transform: translateY(-10px);
+  border-color: var(--pink);
+  box-shadow: 0 0 25px #ff29b822;
+}
+
+.category img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(.8);
+  transition: .4s;
+}
+
+.category:hover img {
+  filter: brightness(1);
+  transform: scale(1.04);
+}
+
+.category-info { padding: 22px; }
+
+.category-info h3 {
+  color: var(--pink);
+  font-size: 19px;
+  margin-bottom: 12px;
+}
+
+.category-info p {
+  font-size: 12px;
+  color: var(--gray);
+  line-height: 1.8;
+}
+
+/* ABOUT */
+
+.about {
+  background: linear-gradient(120deg, #180d17, #090909);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border: 1px solid var(--pink);
+  box-shadow: 15px 15px 0 #ff29b822;
+}
+
+.about-text h2 {
+  font-size: 40px;
+  line-height: 1.2;
+  margin-bottom: 25px;
+}
+
+.about-text h2 span { color: var(--pink); }
+
+.about-text p {
+  color: var(--gray);
+  line-height: 2;
+  font-size: 14px;
+}
+
+/* MOTIVATION */
+
+.quote {
+  text-align: center;
+  background: #100b10;
+}
+
+.quote h2 {
+  font-size: clamp(30px, 5vw, 55px);
+  font-weight: 900;
+}
+
+.quote h2 span {
+  color: var(--pink);
+  text-shadow: 0 0 20px #ff29b855;
+}
+
+/* SOCIAL */
+
+.social {
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.social-links a {
+  border: 1px solid var(--pink);
+  color: var(--pink);
+  padding: 15px 28px;
+  font-size: 13px;
+  font-weight: 800;
+  transition: .3s;
+}
+
+.social-links a:hover {
+  background: var(--pink);
+  color: black;
+  box-shadow: 0 0 25px #ff29b866;
+}
+
+/* FOOTER */
+
+footer {
+  background: #050505;
+  border-top: 1px solid #302430;
+  padding: 35px 0;
+  text-align: center;
+}
+
+footer .logo { margin-bottom: 15px; }
+
+footer p {
+  color: #888;
+  font-size: 11px;
+}
+
+/* MOBILE */
+
+@media(max-width: 850px) {
+  .categories {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-grid { gap: 30px; }
+}
+
+@media(max-width: 650px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 78px;
+    left: 0;
+    width: 100%;
+    background: #100b10;
+    padding: 25px;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .nav-links.active { display: flex; }
+
+  .menu-btn { display: block; }
+
+  .categories { grid-template-columns: 1fr; }
+
+  .about-grid { grid-template-columns: 1fr; }
+
+  .about img { height: 300px; }
+
+  .hero { min-height: 90vh; }
+
+  section { padding: 70px 0; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container navbar">
+    <a href="#home" class="logo">GLOW<span>&</span>GROW<span>.PT</span></a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" data-en="HOME" data-gr="ΑΡΧΙΚΗ">HOME</a></li>
+      <li><a href="#explore" data-en="EXPLORE" data-gr="ΕΞΕΡΕΥΝΗΣΗ">EXPLORE</a></li>
+      <li><a href="#about" data-en="ABOUT" data-gr="ΣΧΕΤΙΚΑ">ABOUT</a></li>
+      <li><a href="#social" data-en="CONTACT" data-gr="ΕΠΙΚΟΙΝΩΝΙΑ">CONTACT</a></li>
+    </ul>
+
+    <div style="display:flex;align-items:center;gap:15px">
+      <button class="lang-btn" id="langBtn">GR</button>
+      <button class="menu-btn" id="menuBtn">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+  <div class="container hero-content">
+
+    <div class="tag">FITNESS • WELLNESS • LIFESTYLE</div>
+
+    <h1>
+      GLOW FROM<br>
+      <span>WITHIN.</span><br>
+      GROW EVERY DAY.
+    </h1>
+
+    <p data-en="Your journey to a stronger, healthier and more confident you starts here. Move your body, nourish your mind and discover your potential."
+       data-gr="Το ταξίδι σου για έναν πιο δυνατό, υγιή και γεμάτο αυτοπεποίθηση εαυτό ξεκινά εδώ. Κινήσου, φρόντισε τον εαυτό σου και ανακάλυψε τις δυνατότητές σου.">
+       Your journey to a stronger, healthier and more confident you starts here.
+    </p>
+
+    <a href="#explore" class="btn"
+       data-en="DISCOVER MORE →"
+       data-gr="ΑΝΑΚΑΛΥΨΕ ΠΕΡΙΣΣΟΤΕΡΑ →">
+       DISCOVER MORE →
+    </a>
+
+  </div>
+</section>
+
+<!-- EXPLORE -->
+
+<section id="explore">
+  <div class="container">
+
+    <div class="section-title">
+      <small>GLOW & GROW</small>
+      <h2 data-en="EXPLORE YOUR <span>POTENTIAL</span>"
+          data-gr="ΑΝΑΚΑΛΥΨΕ ΤΙΣ <span>ΔΥΝΑΤΟΤΗΤΕΣ ΣΟΥ</span>">
+        EXPLORE YOUR <span>POTENTIAL</span>
+      </h2>
+      <p data-en="Everything you need for your fitness and wellness journey."
+         data-gr="Όσα χρειάζεσαι για το δικό σου ταξίδι στο fitness και την ευεξία.">
+         Everything you need for your fitness and wellness journey.
+      </p>
+    </div>
+
+    <div class="categories">
+
+      <article class="category">
+        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=700&q=85" alt="Fitness workout">
+        <div class="category-info">
+          <h3 data-en="WORKOUTS" data-gr="ΠΡΟΠΟΝΗΣΕΙΣ">WORKOUTS</h3>
+          <p data-en="Training inspiration, strength and movement for every level."
+             data-gr="Ιδέες προπόνησης, ενδυνάμωση και κίνηση για κάθε επίπεδο.">
+             Training inspiration, strength and movement for every level.
+          </p>
+        </div>
+      </article>
+
+      <article class="category">
+        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2e653?auto=format&fit=crop&w=700&q=85" alt="Healthy nutrition">
+        <div class="category-info">
+          <h3 data-en="NUTRITION" data-gr="ΔΙΑΤΡΟΦΗ">NUTRITION</h3>
+          <p data-en="Healthy food ideas, balanced meals and delicious recipes."
+             data-gr="Υγιεινές ιδέες, ισορροπημένα γεύματα και νόστιμες συνταγές.">
+             Healthy food ideas, balanced meals and delicious recipes.
+          </p>
+        </div>
+      </article>
+
+      <article class="category">
+        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=700&q=85" alt="Wellness yoga">
+        <div class="category-info">
+          <h3 data-en="WELLNESS" data-gr="ΕΥΕΞΙΑ">WELLNESS</h3>
+          <p data-en="Mindset, recovery, self-care and healthy daily habits."
+             data-gr="Νοοτροπία, αποκατάσταση, αυτοφροντίδα και υγιεινές συνήθειες.">
+             Mindset, recovery, self-care and healthy daily habits.
+          </p>
+        </div>
+      </article>
+
+      <article class="category">
+        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=700&q=85" alt="Fitness lifestyle">
+        <div class="category-info">
+          <h3 data-en="FITNESS BLOG" data-gr="FITNESS BLOG">FITNESS BLOG</h3>
+          <p data-en="Articles, useful tips and motivation to keep growing."
+             data-gr="Άρθρα, χρήσιμες συμβουλές και έμπνευση για να εξελίσσεσαι.">
+             Articles, useful tips and motivation to keep growing.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+  <div class="container about-grid">
+
+    <img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=1000&q=85"
+         alt="Fitness lifestyle">
+
+    <div class="about-text">
+      <div class="tag">OUR PHILOSOPHY</div>
+
+      <h2 data-en="BE STRONG.<br><span>GLOW MORE.</span>"
+          data-gr="ΓΙΝΕ ΔΥΝΑΤΟΣ.<br><span>ΛΑΜΨΕ ΠΕΡΙΣΣΟΤΕΡΟ.</span>">
+        BE STRONG.<br><span>GLOW MORE.</span>
+      </h2>
+
+      <p data-en="Glow & Grow is more than fitness. It is a lifestyle built around strength, confidence, balance and self-love. Every small step counts. Your journey is unique, and every day is a new opportunity to grow."
+         data-gr="Το Glow & Grow είναι κάτι περισσότερο από fitness. Είναι ένας τρόπος ζωής βασισμένος στη δύναμη, την αυτοπεποίθηση, την ισορροπία και την αγάπη για τον εαυτό μας. Κάθε μικρό βήμα μετράει. Το ταξίδι σου είναι μοναδικό και κάθε μέρα είναι μια νέα ευκαιρία να εξελιχθείς.">
+        Glow & Grow is more than fitness. It is a lifestyle built around strength, confidence, balance and self-love.
+      </p>
+
+      <a href="#social" class="btn"
+         data-en="JOIN OUR COMMUNITY →"
+         data-gr="ΓΙΝΕ ΜΕΛΟΣ ΤΗΣ ΠΑΡΕΑΣ →">
+        JOIN OUR COMMUNITY →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- MOTIVATION -->
+
+<section class="quote">
+  <div class="container">
+    <div class="tag">GLOW & GROW MINDSET</div>
+
+    <h2 style="margin-top:25px">
+      <span data-en="DON'T STOP." data-gr="ΜΗ ΣΤΑΜΑΤΑΣ.">DON'T STOP.</span><br>
+      <span data-en="KEEP GROWING." data-gr="ΣΥΝΕΧΙΣΕ ΝΑ ΕΞΕΛΙΣΣΕΣΑΙ.">KEEP GROWING.</span>
+    </h2>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+
+<section class="social" id="social">
+  <div class="container">
+    <div class="section-title">
+      <small>BE PART OF THE COMMUNITY</small>
+      <h2 data-en="LET'S <span>CONNECT</span>"
+          data-gr="ΕΛΑ ΝΑ <span>ΣΥΝΔΕΘΟΥΜΕ</span>">
+        LET'S <span>CONNECT</span>
+      </h2>
+      <p data-en="Follow Glow & Grow and grow with us every day."
+         data-gr="Ακολούθησε το Glow & Grow και εξελίξου μαζί μας κάθε μέρα.">
+         Follow Glow & Grow and grow with us every day.
+      </p>
+    </div>
+
+    <div class="social-links">
+      <a href="https://www.instagram.com/glowandgrow.pt/"
+         target="_blank" rel="noopener">INSTAGRAM ↗</a>
+
+      <a href="https://www.tiktok.com/@glowandgrow.pt"
+         target="_blank" rel="noopener">TIKTOK ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="container">
+    <div class="logo">GLOW<span>&</span>GROW<span>.PT</span></div>
+
+    <p>FITNESS • WELLNESS • LIFESTYLE</p>
+
+    <p style="margin-top:15px">
+      © <span id="year"></span> Glow & Grow.
+      <span data-en="All rights reserved."
+            data-gr="Με επιφύλαξη παντός δικαιώματος.">
+        All rights reserved.
+      </span>
+    </p>
+  </div>
+</footer>
+
+<script>
+let currentLang = "en";
+
+const langBtn = document.getElementById("langBtn");
+
+langBtn.addEventListener("click", function() {
+
+  currentLang = currentLang === "en" ? "gr" : "en";
+
+  document.documentElement.lang = currentLang;
+
+  langBtn.textContent = currentLang === "en" ? "GR" : "EN";
+
+  document.querySelectorAll("[data-en][data-gr]").forEach(function(element) {
+    element.innerHTML = element.getAttribute("data-" + currentLang);
+  });
+
+});
+
+document.getElementById("menuBtn").addEventListener("click", function() {
+  document.getElementById("navLinks").classList.toggle("active");
+});
+
+document.querySelectorAll(".nav-links a").forEach(function(link) {
+  link.addEventListener("click", function() {
+    document.getElementById("navLinks").classList.remove("active");
+  });
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
